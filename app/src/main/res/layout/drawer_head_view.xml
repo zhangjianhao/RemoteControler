@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorAccent">
+
+    <ImageView
+        android:id="@+id/log_out"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/common_full_open_on_phone"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        />
+
+
+    <com.zjianhao.view.CircleImageView
+        android:id="@+id/head_img"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_user_head_img"
+        app:border_color="@color/colorAccent"
+        app:border_width="1dp"
+        android:layout_centerInParent="true"
+        />
+
+    <TextView
+        android:id="@+id/head_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:text="请先登陆"
+        android:layout_below="@+id/head_img"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/white"
+        android:layout_centerHorizontal="true"
+        />
+
+
+
+
+</RelativeLayout>

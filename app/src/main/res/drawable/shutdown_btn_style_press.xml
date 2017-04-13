@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <layer-list
+            >
+            <item>
+                <shape android:shape="oval">
+                    <size android:height="92.0dip" android:width="92.0dip" />
+                    <stroke android:width="5.0dip" android:color="#33000000" />
+                    <padding android:left="5.0dip" android:top="5.0dip" android:right="5.0dip" android:bottom="5.0dip" />
+                </shape>
+            </item>
+            <item>
+                <shape android:shape="oval">
+                    <stroke android:width="2.0dip" android:color="#ffffffff" />
+                    <padding android:left="2.0dip" android:top="2.0dip" android:right="2.0dip" android:bottom="2.0dip" />
+                </shape>
+            </item>
+            <item>
+                <shape android:shape="oval">
+                    <solid android:color="@color/dark_red" />
+                </shape>
+            </item>
+
+            <item
+                android:left="15dp"
+                android:right="15dp"
+                android:bottom="15dp"
+                android:top="15dp"
+                android:drawable="@drawable/icon_shutdown_down"></item>
+        </layer-list>
+
+    </item>
+
+</selector>

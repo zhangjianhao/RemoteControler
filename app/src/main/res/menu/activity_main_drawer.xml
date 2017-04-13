@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_pc"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="我的电脑" />
+        <item
+            android:id="@+id/nav_eletrctrical"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="我的家电" />
+        <item
+            android:id="@+id/nav_smart_device"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="智能设备" />
+
+    </group>
+
+    <item android:title="其他">
+        <menu>
+            <item
+                android:id="@+id/nav_setting"
+                android:icon="@drawable/ic_menu_send"
+                android:title="设置" />
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="分享" />
+            <item
+                android:id="@+id/nav_about_software"
+                android:icon="@drawable/ic_menu_send"
+                android:title="关于本软件" />
+        </menu>
+    </item>
+
+</menu>

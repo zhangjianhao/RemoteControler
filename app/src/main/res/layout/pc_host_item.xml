@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:id="@+id/after_search_host"
+    android:layout_height="80dp">
+
+
+
+    <TextView
+        android:id="@+id/hostname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="zjianhao-pc"
+        android:textSize="20sp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        />
+    <TextView
+        android:id="@+id/host_ip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="192.168.0.10"
+        android:layout_marginTop="5dp"
+        android:layout_below="@id/hostname"
+        android:layout_marginLeft="20dp"
+        />
+
+    <TextView
+        android:id="@+id/sys_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Linux"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="14sp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="系统类型:"
+        android:textSize="13sp"
+        android:layout_toLeftOf="@id/sys_type"
+        android:layout_alignBottom="@id/sys_type"
+        android:layout_marginRight="5dp"
+        />
+
+
+
+
+</RelativeLayout>

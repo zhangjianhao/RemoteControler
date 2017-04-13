@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <selector xmlns:android="http://schemas.android.com/apk/res/android">
+        <item android:state_pressed="true">
+            <layer-list>
+                <item>
+                    <shape android:shape="oval" >
+                        <solid android:color="#407a0d"></solid>
+
+                    </shape>
+
+                </item>
+
+                <item
+                    android:left="15dp"
+                    android:right="15dp"
+                    android:bottom="15dp"
+                    android:top="15dp"
+                    android:drawable="@drawable/remote_controlpc_icon">
+
+                </item>
+
+
+            </layer-list>
+        </item>
+
+        <item >
+            <layer-list>
+                <item>
+                    <shape android:shape="oval" >
+                        <solid android:color="#66c41a"></solid>
+
+                    </shape>
+
+                </item>
+
+                <item
+                    android:left="15dp"
+                    android:right="15dp"
+                    android:bottom="15dp"
+                    android:top="15dp"
+                    android:drawable="@drawable/remote_controlpc_icon">
+
+                </item>
+
+
+            </layer-list>
+        </item>
+
+    </selector>
