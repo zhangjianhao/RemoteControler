@@ -13,7 +13,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -36,6 +35,8 @@ public class MainActivity extends BaseActivity
     public static final int PC_FRAGMENT = 1;
     public static final int ELECTRICAL_FRAGMENT = 2;
     public static final int SMART_DEVICE_FRAGMENT = 3;
+    private int whichFragment = PC_FRAGMENT;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +49,8 @@ public class MainActivity extends BaseActivity
         setContentView(R.layout.activity_main);
         ButterKnife.inject(this);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("我的电脑");
         setSupportActionBar(toolbar);
 
 
@@ -66,6 +68,7 @@ public class MainActivity extends BaseActivity
 
 
     private void changeFragment(int which){
+        whichFragment = which;
         Fragment targetFragment = fragmentMap.get(which);
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
@@ -76,6 +79,7 @@ public class MainActivity extends BaseActivity
                     fragmentMap.put(which,targetFragment);
                     Log.d("MainActivity", "pcfragment");
                 }
+
                 break;
             case ELECTRICAL_FRAGMENT:
                 if (targetFragment == null){
@@ -101,6 +105,7 @@ public class MainActivity extends BaseActivity
                 transaction.hide(currentFragment).show(targetFragment).commit();
         }
         currentFragment = targetFragment;
+        invalidateOptionsMenu();
     }
 
     @Override
@@ -113,22 +118,45 @@ public class MainActivity extends BaseActivity
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+////        getMenuInflater().inflate(R.menu.main,menu);
+//        return super.onCreateOptionsMenu(menu);
+//    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
+//    @Override
+//    public boolean onPrepareOptionsMenu(Menu menu) {
+//        System.out.println("which:"+whichFragment);
+//        menu.clear();
+//        switch (whichFragment){
+//            case PC_FRAGMENT:
+////                inflater.inflate(R.menu.pc_tool_menu,menu);
+//                menu.findItem(R.menu.pc_tool_menu);
+//                toolbar.setTitle("我的电脑");
+//                break;
+//            case ELECTRICAL_FRAGMENT:
+////                inflater.inflate(R.menu.electrical_tool_menu,menu);
+//                menu.findItem(R.menu.electrical_tool_menu);
+//                toolbar.setTitle("我的家电");
+//
+//                break;
+//            case SMART_DEVICE_FRAGMENT:
+//                toolbar.setTitle("智能设备");
+//                break;
+//        }
+//        return super.onPrepareOptionsMenu(menu);
+//    }
 
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        int id = item.getItemId();
+//
+//        if (id == R.id.action_settings) {
+//            return true;
+//        }
+//
+//        return super.onOptionsItemSelected(item);
+//    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -148,6 +176,7 @@ public class MainActivity extends BaseActivity
         } else if (id == R.id.nav_setting) {
 
         }
+        invalidateOptionsMenu();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

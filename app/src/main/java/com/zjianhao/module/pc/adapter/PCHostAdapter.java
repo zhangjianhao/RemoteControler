@@ -23,17 +23,26 @@ public class PCHostAdapter extends RecyclerView.Adapter<PCHostHolder> {
     private Context context;
     private LayoutInflater inflater;
     private List<Host> hosts;
+    private HostClickListener listener;
 
+    public interface HostClickListener{
+        public void onItemClick(int position);
+    }
     public PCHostAdapter(Context context, List<Host> hosts) {
         this.context = context;
         this.hosts = hosts;
         inflater = LayoutInflater.from(context);
     }
 
+    public void setOnHostClickListener(HostClickListener listener){
+        this.listener = listener;
+    }
+
     @Override
     public PCHostHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = inflater.inflate(R.layout.pc_host_item,parent,false);
-        PCHostHolder hostHolder = new PCHostHolder(view);
+        PCHostHolder hostHolder = new PCHostHolder(view,listener);
+
         return hostHolder;
     }
 
@@ -52,7 +61,8 @@ public class PCHostAdapter extends RecyclerView.Adapter<PCHostHolder> {
 
     public void setData(List<Host> hosts){
         this.hosts.clear();
-        hosts.addAll(hosts);
+        this.hosts.addAll(hosts);
+        notifyDataSetChanged();
     }
 
     public void addData(Host host){

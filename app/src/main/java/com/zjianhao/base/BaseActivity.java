@@ -32,14 +32,8 @@ public class BaseActivity extends AppCompatActivity {
 
 
     public void showSnackbar(View view,String msg){
-        Snackbar.make(view, "Hello SnackBar!", Snackbar.LENGTH_SHORT)
-//                .setAction("取消", new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//
-//                    }
-//                })
+        Snackbar.make(view, msg, Snackbar.LENGTH_SHORT)
                 .setActionTextColor(getResources().getColor(R.color.colorAccent))
-                .setDuration(2000).show();
+                .setDuration(3000).show();
     }
 }

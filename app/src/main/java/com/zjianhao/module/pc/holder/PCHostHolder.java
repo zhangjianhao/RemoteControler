@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
+import com.zjianhao.module.pc.adapter.PCHostAdapter;
 import com.zjianhao.universalcontroller.R;
 
 /**
@@ -20,10 +21,18 @@ public class PCHostHolder extends RecyclerView.ViewHolder{
 
 
 
-    public PCHostHolder(View itemView) {
+    public PCHostHolder(View itemView, final PCHostAdapter.HostClickListener listener) {
         super(itemView);
         hostname = (TextView) itemView.findViewById(R.id.hostname);
         hostIp = (TextView) itemView.findViewById(R.id.host_ip);
         sysType = (TextView) itemView.findViewById(R.id.sys_type);
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (listener != null)
+                    listener.onItemClick(getAdapterPosition());
+            }
+        });
+
     }
 }

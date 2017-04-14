@@ -2,10 +2,13 @@ package com.zjianhao.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.zjianhao.universalcontroller.R;
 
 /**
  * Created by 张建浩（Clarence) on 2017-4-10 16:27.
@@ -19,5 +22,11 @@ public class BaseFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return super.onCreateView(inflater, container, savedInstanceState);
+    }
+
+    public void showSnackbar(View view,String msg){
+        Snackbar.make(view, msg, Snackbar.LENGTH_SHORT)
+                .setActionTextColor(getResources().getColor(R.color.colorAccent))
+                .setDuration(3000).show();
     }
 }

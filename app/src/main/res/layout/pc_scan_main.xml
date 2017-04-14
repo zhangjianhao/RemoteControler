@@ -5,6 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+
     <LinearLayout
         android:id="@+id/test"
         app:layout_widthPercent="100%"
@@ -47,14 +49,35 @@
 
 
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycleView"
+
+
+    <FrameLayout
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_heightPercent="60%"
         android:layout_below="@id/test"
+        >
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycleView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
 
-        ></android.support.v7.widget.RecyclerView>
+
+            ></android.support.v7.widget.RecyclerView>
 
 
+
+        <TextView
+            android:id="@+id/no_host_remind_info"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="未发现可遥控主机"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:visibility="gone"
+            />
+
+    </FrameLayout>
 
 </android.support.percent.PercentRelativeLayout>

@@ -24,16 +24,17 @@ public class BroadcastDiscovery extends Thread {
 
     private boolean timerStop = false;
     private DiscoverHostListener listener;
-    private DatagramSocket receiver;
     public static final int REQUEST_CODE = 400;
     public static final int RESPONSE_CODE = 200;
+    private DatagramSocket socket;
 
-    public interface DiscoverHostListener{
-        public void onDiscovery(String ip,String hostname,String sysType);
+    public interface DiscoverHostListener {
+        public void onDiscovery(String ip, String hostname, String sysType);
+
         public void onFailure(Exception e);
     }
 
-    public void setOnDiscoverHostListener(DiscoverHostListener listener){
+    public void setOnDiscoverHostListener(DiscoverHostListener listener) {
         this.listener = listener;
     }
 
@@ -57,42 +58,46 @@ public class BroadcastDiscovery extends Thread {
     }
 
     private void sendRequestData() throws IOException {
-        byte[] buf = (REQUEST_CODE+"").getBytes();
+        byte[] buf = (REQUEST_CODE + "").getBytes();
         DatagramPacket out = new DatagramPacket(buf, 0, buf.length);
-        DatagramSocket socket = new DatagramSocket();
+        socket = new DatagramSocket();
+        System.out.println(getBroadcastAddress(context).getHostAddress());
         out.setAddress(getBroadcastAddress(context));
         out.setPort(Constant.REMOTE_PORT);
         socket.send(out);
     }
 
 
-    public void stopDiscovery(){
+    public void stopDiscovery() {
         timerStop = true;
-        receiver.close();
+        socket.disconnect();
+        socket = null;
 
     }
 
     private void receiveResponseData() throws IOException {
         byte[] buf = new byte[2048];
-        receiver = new DatagramSocket(Constant.LOCAL_PORT);
-        DatagramPacket in = new DatagramPacket(buf,buf.length);
+        DatagramPacket in = new DatagramPacket(buf, buf.length);
         while (!timerStop) {
-           receiver.receive(in);
-            InetAddress address = in.getAddress();
-            String result = new String(in.getData(),0,in.getLength());
-            if (result.contains("#")){
-                String[] split = result.split("#");
-                if ((RESPONSE_CODE+"").equals(result) && listener != null)
-                    listener.onDiscovery(address.getHostAddress(),address.getHostName(),split[1]);
+            if (!socket.isClosed()) {
+                socket.receive(in);
+                InetAddress address = in.getAddress();
+                String result = new String(in.getData(), 0, in.getLength());
+                System.out.println("receive:" + result + ":" + address);
+                if (result.contains("#")) {
+                    String[] split = result.split("#");
+                    if ((RESPONSE_CODE + "").equals(split[0]) && listener != null)
+                        listener.onDiscovery(address.getHostAddress(), address.getHostName(), split[1]);
+                }
             }
 
         }
     }
 
     public static InetAddress getBroadcastAddress(Context context) throws UnknownHostException {
-        WifiManager wifi = (WifiManager)context.getSystemService(Context.WIFI_SERVICE);
+        WifiManager wifi = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
         DhcpInfo dhcp = wifi.getDhcpInfo();
-        if(dhcp==null) {
+        if (dhcp == null) {
             return InetAddress.getByName("255.255.255.255");
         }
         int broadcast = (dhcp.ipAddress & dhcp.netmask) | ~dhcp.netmask;

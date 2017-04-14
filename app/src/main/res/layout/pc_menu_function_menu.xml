@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@drawable/window_background"
+    android:layout_height="match_parent">
+
+
+
+  <LinearLayout
+      android:layout_width="fill_parent"
+      android:layout_height="fill_parent"
+      android:layout_weight="1.3">
+
+  </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+    >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+
+            android:layout_weight="1">
+            <Button
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/remote_shutdown_btn"
+                android:background="@drawable/menu_shutdown_style"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="遥控关机"
+                android:textSize="12sp"
+                android:layout_marginTop="10dp"
+                android:textColor="@android:color/white"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+
+            android:layout_weight="1">
+            <Button
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/remote_ppt_btn"
+                android:background="@drawable/menu_ppt_style"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="遥控PPT"
+                android:textSize="12sp"
+                android:layout_marginTop="10dp"
+                android:textColor="@android:color/white"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_weight="1">
+            <Button
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/remote_mouse_btn"
+                android:background="@drawable/menu_mouse_style"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="遥控器"
+                android:textSize="12sp"
+                android:layout_marginTop="10dp"
+                android:textColor="@android:color/white"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_weight="1">
+            <Button
+                android:id="@+id/adb_wireless_debug_btn"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/menu_adbdebug_style"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="无线调试"
+                android:textSize="12sp"
+                android:layout_marginTop="10dp"
+                android:textColor="@android:color/white"
+                />
+
+    </LinearLayout>
+
+    </LinearLayout>
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="fill_parent"-->
+        <!--android:orientation="horizontal"-->
+        <!--android:layout_weight="1"-->
+        <!--&gt;-->
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:gravity="center"-->
+            <!--android:orientation="vertical"-->
+            <!--android:layout_weight="1">-->
+            <!--<Button-->
+                <!--android:layout_width="70dp"-->
+                <!--android:layout_height="70dp"-->
+                <!--android:background="@drawable/menu_shutdown_style"/>-->
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="待开发模块"-->
+                <!--android:textSize="12sp"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:textColor="@android:color/white"-->
+                <!--/>-->
+
+        <!--</LinearLayout>-->
+        <!--<LinearLayout-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:gravity="center"-->
+            <!--android:orientation="vertical"-->
+            <!--android:layout_weight="1">-->
+            <!--<Button-->
+                <!--android:layout_width="70dp"-->
+                <!--android:layout_height="70dp"-->
+                <!--android:background="@drawable/menu_ppt_style"/>-->
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="待开发模块"-->
+                <!--android:textSize="12sp"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:textColor="@android:color/white"-->
+                <!--/>-->
+
+        <!--</LinearLayout>-->
+
+    <!--</LinearLayout>-->
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1.1">
+
+    </LinearLayout>
+
+
+
+
+
+
+
+</LinearLayout>

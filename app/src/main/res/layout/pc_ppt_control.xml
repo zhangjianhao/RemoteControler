@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@drawable/window_background"
+    android:layout_height="match_parent">
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/click_up"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/ppt_left_btn_style"
+        android:layout_marginLeft="40dp"
+        android:layout_gravity="left" />
+
+    <Button
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:background="@drawable/ppt_right_btn_style"
+        android:layout_gravity="right"
+        android:layout_marginRight="40dp"
+        android:id="@+id/click_down" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/exit_ppt_fullscreen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="退出全屏"
+            android:textSize="12sp"
+            android:textColor="@color/white"
+            android:background="@drawable/adb_wireless_btn_style"
+            android:layout_marginRight="40dp"/>
+        <Button
+            android:id="@+id/start_ppt_fullscreen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="开始播放"
+            android:textSize="12sp"
+            android:textColor="@color/white"
+            android:background="@drawable/adb_wireless_btn_style"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>
