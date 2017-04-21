@@ -1,6 +1,15 @@
 package com.zjianhao.universalcontroller;
 
 import android.app.Application;
+import android.content.Context;
+
+import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
+import com.nostra13.universalimageloader.core.download.BaseImageDownloader;
+
+import java.io.File;
 
 /**
  * Created by 张建浩（Clarence) on 2017-4-13 16:38.
@@ -14,6 +23,34 @@ public class AppApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        initImageLoader(getApplicationContext());
+    }
+
+
+    public static void initImageLoader(Context context) {
+        ImageLoaderConfiguration.Builder config = new ImageLoaderConfiguration.Builder(context);
+        config.threadPriority(Thread.NORM_PRIORITY);
+        config.denyCacheImageMultipleSizesInMemory();
+        config.memoryCacheSize((int) Runtime.getRuntime().maxMemory() / 4);
+        config.diskCacheFileNameGenerator(new Md5FileNameGenerator());
+        config.diskCacheSize(100 * 1024 * 1024); // 100 MiB
+        config.tasksProcessingOrder(QueueProcessingType.LIFO);
+        //修改连接超时时间5秒，下载超时时间5秒
+        config.imageDownloader(new BaseImageDownloader(context, 5 * 1000, 5 * 1000));
+        //		config.writeDebugLogs(); // Remove for release app
+        // Initialize ImageLoader with configuration.
+        ImageLoader.getInstance().init(config.build());
+    }
+
+    public String getCachePath() {
+        File cacheDir;
+        if (android.os.Environment.getExternalStorageState().equals(android.os.Environment.MEDIA_MOUNTED))
+            cacheDir = getExternalCacheDir();
+        else
+            cacheDir = getCacheDir();
+        if (!cacheDir.exists())
+            cacheDir.mkdirs();
+        return cacheDir.getAbsolutePath();
     }
 
     public String getIp() {

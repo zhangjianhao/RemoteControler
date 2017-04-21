@@ -29,6 +29,15 @@ public class UdpSender {
         socket.close();
     }
 
+    public static void sendOrder(String ip, int port, int orderCode, String info) throws IOException {
+        DatagramSocket socket = new DatagramSocket();
+        byte[] buf = (orderCode + "#" + info).getBytes("utf-8");
+        DatagramPacket packet = new DatagramPacket(buf, buf.length, InetAddress.getByName(ip), port);
+        socket.send(packet);
+        packet = null;
+        socket.close();
+    }
+
     public static void sendOrderSyn(final String ip, final int orderCode) {
         new Thread(new Runnable() {
             @Override
@@ -55,5 +64,19 @@ public class UdpSender {
             }
         }).start();
 
+    }
+
+
+    public static void sendOrderSyn(final String ip, final int port, final int orderCode, final String info) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    UdpSender.sendOrder(ip, port, orderCode, info);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
     }
 }

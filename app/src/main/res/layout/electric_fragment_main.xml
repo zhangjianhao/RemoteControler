@@ -1,13 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <TextView
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/controller_device"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v7.widget.RecyclerView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/device_add_menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="electric"
+        android:clickable="true"
+        app:fabSize="normal"
+        app:srcCompat="@color/colorPrimary"
+        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="24dp"
+        app:elevation="20dp"
+        android:src="@drawable/ic_add_white_24dp"
+        android:layout_gravity="bottom|right"
         />
 
-
-
-</LinearLayout>
+</FrameLayout>

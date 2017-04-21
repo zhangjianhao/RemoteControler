@@ -18,7 +18,7 @@ import android.view.View;
 
 import com.zjianhao.base.BaseActivity;
 import com.zjianhao.module.device.SmartDeviceFragment;
-import com.zjianhao.module.electrical.ElectricalFragment;
+import com.zjianhao.module.electrical.ui.ElectricalFragment;
 import com.zjianhao.module.pc.PCFragment;
 
 import java.util.HashMap;
@@ -63,7 +63,7 @@ public class MainActivity extends BaseActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        changeFragment(PC_FRAGMENT);
+        changeFragment(ELECTRICAL_FRAGMENT);
     }
 
 
@@ -79,6 +79,7 @@ public class MainActivity extends BaseActivity
                     fragmentMap.put(which,targetFragment);
                     Log.d("MainActivity", "pcfragment");
                 }
+                toolbar.setTitle("我的电脑");
 
                 break;
             case ELECTRICAL_FRAGMENT:
@@ -86,12 +87,14 @@ public class MainActivity extends BaseActivity
                     targetFragment = new ElectricalFragment();
                     fragmentMap.put(which,targetFragment);
                 }
+                toolbar.setTitle("我的家电");
                 break;
             case SMART_DEVICE_FRAGMENT:
                 if (targetFragment == null){
                     targetFragment = new SmartDeviceFragment();
                     fragmentMap.put(which,targetFragment);
                 }
+                toolbar.setTitle("智能设备");
                 break;
         }
         if (!targetFragment.isAdded()){
@@ -120,7 +123,7 @@ public class MainActivity extends BaseActivity
 
 //    @Override
 //    public boolean onCreateOptionsMenu(Menu menu) {
-////        getMenuInflater().inflate(R.menu.main,menu);
+//        getMenuInflater().inflate(R.menu.main,menu);
 //        return super.onCreateOptionsMenu(menu);
 //    }
 
