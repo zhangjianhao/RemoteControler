@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.zjianhao.base.BaseActivity;
+import com.zjianhao.module.electrical.model.Brand;
 import com.zjianhao.universalcontroller.R;
 
 import butterknife.ButterKnife;
@@ -31,11 +32,13 @@ public class TestAcitivy extends BaseActivity {
         super.onCreate(savedInstanceState, persistentState);
         setContentView(R.layout.test_main);
         ButterKnife.inject(this);
-
+        System.out.println("test oncreate");
     }
 
     @OnClick(R.id.send)
     public void onClick() {
-
+        Brand brand = new Brand();
+        brand.setName("小 米");
+        edittext.setText(brand.getLetterIndex());
     }
 }

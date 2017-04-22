@@ -1,6 +1,7 @@
 package com.zjianhao.module.electrical;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -16,6 +17,7 @@ import com.zjianhao.http.ResponseHeader;
 import com.zjianhao.http.RetrofitManager;
 import com.zjianhao.module.electrical.adapter.DeviceTypeAdapter;
 import com.zjianhao.module.electrical.model.DeviceType;
+import com.zjianhao.module.electrical.ui.BrandListActivity;
 import com.zjianhao.universalcontroller.R;
 
 import java.util.ArrayList;
@@ -37,9 +39,11 @@ public class DevicePopupWindow extends PopupWindow implements DeviceTypeAdapter.
     private ProgressBar deviceLoadProgress;
     private List<DeviceType> deviceTypes = new ArrayList<>();
     private DeviceTypeAdapter adapter;
+    private Context context;
 
     public DevicePopupWindow(Context context) {
         super();
+        this.context = context;
         setTouchable(true);
         setOutsideTouchable(true);
         LayoutInflater inflater = LayoutInflater.from(context);
@@ -56,7 +60,6 @@ public class DevicePopupWindow extends PopupWindow implements DeviceTypeAdapter.
         setAnimationStyle(R.style.pop_submenu_anim_style);
         ColorDrawable dw = new ColorDrawable(0x000000);
         this.setBackgroundDrawable(dw);
-        addData();
         popupView.setOnTouchListener(new View.OnTouchListener() {
             public boolean onTouch(View v, MotionEvent event) {
                 int height = popupView.getTop();
@@ -73,17 +76,7 @@ public class DevicePopupWindow extends PopupWindow implements DeviceTypeAdapter.
     }
 
 
-    public void addData() {
-        DeviceType type = new DeviceType();
-        type.setName("电视机");
-        type.setTypeId(1);
-        type.setImgUrl(null);
-        deviceTypes.add(type);
-        deviceTypes.add(type);
-        deviceTypes.add(type);
-        deviceTypes.add(type);
-        deviceTypes.add(type);
-    }
+
 
 
     public void loadDeviceType() {
@@ -99,6 +92,12 @@ public class DevicePopupWindow extends PopupWindow implements DeviceTypeAdapter.
                 deviceLoadProgress.setVisibility(View.GONE);
                 adapter.setDatas(data);
             }
+
+            @Override
+            public void onFailure(Throwable t) {
+                super.onFailure(t);
+                deviceLoadProgress.setVisibility(View.GONE);
+            }
         });
     }
 
@@ -106,7 +105,10 @@ public class DevicePopupWindow extends PopupWindow implements DeviceTypeAdapter.
     @Override
     public void onClickDeviceType(DeviceType item) {
         dismiss();
-        int typeid = item.getTypeId();
+        int typeId = item.getTypeId();
+        Intent intent = new Intent(context, BrandListActivity.class);
+        intent.putExtra("type_id", typeId);
+        context.startActivity(intent);
 
     }
 

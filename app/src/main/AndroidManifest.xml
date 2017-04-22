@@ -36,6 +36,7 @@
             android:windowSoftInputMode="adjustResize"
             >
             </activity>
+        <activity android:name="com.zjianhao.module.electrical.ui.BrandListActivity" />
     </application>
 
 </manifest>

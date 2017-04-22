@@ -93,6 +93,26 @@ public class MultiItemTypeAdapter<T> extends RecyclerView.Adapter<ViewHolder> {
         return itemCount;
     }
 
+    public void addData(T data) {
+        this.mDatas.add(data);
+        notifyDataSetChanged();
+    }
+
+    public void addData(List<T> mDatas) {
+        this.mDatas.addAll(mDatas);
+        notifyDataSetChanged();
+    }
+
+    public void setDatas(List<T> datas) {
+        if (mDatas == null)
+            mDatas = datas;
+        else {
+            mDatas.clear();
+            mDatas.addAll(datas);
+        }
+        notifyDataSetChanged();
+    }
+
 
     public List<T> getDatas() {
         return mDatas;

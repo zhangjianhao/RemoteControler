@@ -2,6 +2,9 @@ package com.zjianhao.module.electrical.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.zjianhao.utils.HanziToPinyin;
+
+import java.util.ArrayList;
 
 /**
  * Created by 张建浩（Clarence) on 2017-4-18 21:09.
@@ -12,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * 品牌
  */
-public class Brand {
+public class Brand implements Comparable<Brand> {
     @JsonIgnore
     private int typeId;
 
@@ -23,6 +26,8 @@ public class Brand {
     private int common;
     @JsonProperty("name")
     private String name;
+
+    private String index;
 
     public int getTypeId() {
         return typeId;
@@ -52,7 +57,28 @@ public class Brand {
         return name;
     }
 
+    public String getLetterIndex() {
+        if (index == null) {
+            System.out.println(name);
+            ArrayList<HanziToPinyin.Token> tokens = HanziToPinyin.getInstance().get(name);
+            System.out.println(tokens.size());
+            for (HanziToPinyin.Token token : tokens) {
+                System.out.println(token.target);
+            }
+            char[] chars = tokens.get(0).target.toUpperCase().toCharArray();
+            index = chars[0] + "";
+        }
+        return index;
+
+    }
+
     public void setName(String name) {
         this.name = name;
+    }
+
+
+    @Override
+    public int compareTo(Brand o) {
+        return this.getLetterIndex().compareTo(o.getLetterIndex());
     }
 }
