@@ -1,5 +1,7 @@
 package com.zjianhao.http;
 
+import com.zjianhao.universalcontroller.Constant;
+
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
@@ -12,7 +14,7 @@ import retrofit2.converter.jackson.JacksonConverterFactory;
  */
 
 public class RetrofitManager {
-    private static String baseUrl = "http://192.168.0.223:8082/controller/api/";
+    private static String baseUrl = Constant.PROJECT_URL + "/api/";
     private static Retrofit retrofit;
     private static DeviceApi deviceApi;
     private static UserApi userApi;

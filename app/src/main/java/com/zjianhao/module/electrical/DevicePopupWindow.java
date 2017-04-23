@@ -109,7 +109,6 @@ public class DevicePopupWindow extends PopupWindow implements DeviceTypeAdapter.
         Intent intent = new Intent(context, BrandListActivity.class);
         intent.putExtra("type_id", typeId);
         context.startActivity(intent);
-
     }
 
 

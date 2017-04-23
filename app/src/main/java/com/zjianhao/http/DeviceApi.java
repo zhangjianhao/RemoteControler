@@ -2,6 +2,7 @@ package com.zjianhao.http;
 
 import com.zjianhao.module.electrical.model.Brand;
 import com.zjianhao.module.electrical.model.DeviceType;
+import com.zjianhao.module.electrical.model.KeyTest;
 
 import java.util.List;
 
@@ -39,5 +40,29 @@ public interface DeviceApi {
     @POST("device/brands")
     Call<ResponseHeader<List<Brand>>> getBrands(
             @Field("type_id") int typeId);
+
+
+    /**
+     * 获取制定类型品牌的测试按键列表
+     *
+     * @param typeId
+     * @param brandId
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("device/key_test")
+    Call<ResponseHeader<List<KeyTest>>> getKeyTests(
+            @Field("type_id") int typeId,
+            @Field("brand_id") int brandId);
+
+
+
+
+
+
+
+
+
+
 
 }

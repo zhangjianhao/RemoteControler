@@ -86,6 +86,7 @@ public class ElectricalFragment extends BaseFragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
+        if (window != null)
         window.dismiss();
     }
 }

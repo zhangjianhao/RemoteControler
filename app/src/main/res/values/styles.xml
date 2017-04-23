@@ -24,4 +24,9 @@
         <item name="android:windowExitAnimation">@anim/popup_submenu_hidden</item>
     </style>
 
+    <style name="MyProgressBar" parent="Base.Widget.AppCompat.ProgressBar">
+        <item name="android:indeterminateTint">@color/orange</item>
+        <item name="android:indeterminateTintMode">src_atop</item>
+    </style>
+
 </resources>

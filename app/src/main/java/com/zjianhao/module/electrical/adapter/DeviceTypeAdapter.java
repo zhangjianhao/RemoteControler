@@ -2,6 +2,7 @@ package com.zjianhao.module.electrical.adapter;
 
 import android.content.Context;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -34,14 +35,15 @@ public class DeviceTypeAdapter extends CommonAdapter<DeviceType> {
 
     public DeviceTypeAdapter(Context context, int layoutId, List<DeviceType> datas) {
         super(context, layoutId, datas);
-        loader.getInstance();
+        loader = ImageLoader.getInstance();
     }
 
     @Override
     protected void convert(ViewHolder viewHolder, final DeviceType item, int position) {
         viewHolder.setText(R.id.device_type_text, item.getName());
-        if (item.getImgUrl() != null)
-            viewHolder.setImageBitmap(R.id.device_type_img, loader.loadImageSync(item.getImgUrl()));
+        if (item.getImgUrl() != null) {
+            loader.displayImage(item.getImgUrl(), (ImageView) viewHolder.getView(R.id.device_type_img));
+        }
         LinearLayout typeItem = viewHolder.getView(R.id.device_type_item);
         typeItem.setOnClickListener(new View.OnClickListener() {
             @Override

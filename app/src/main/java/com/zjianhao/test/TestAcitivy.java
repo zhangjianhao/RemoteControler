@@ -11,8 +11,6 @@ import com.zjianhao.module.electrical.model.Brand;
 import com.zjianhao.universalcontroller.R;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
-import butterknife.OnClick;
 
 /**
  * Created by 张建浩（Clarence) on 2017-4-16 22:43.
@@ -22,9 +20,7 @@ import butterknife.OnClick;
  */
 
 public class TestAcitivy extends BaseActivity {
-    @InjectView(R.id.edittext)
     EditText edittext;
-    @InjectView(R.id.send)
     Button send;
 
     @Override
@@ -35,7 +31,6 @@ public class TestAcitivy extends BaseActivity {
         System.out.println("test oncreate");
     }
 
-    @OnClick(R.id.send)
     public void onClick() {
         Brand brand = new Brand();
         brand.setName("小 米");

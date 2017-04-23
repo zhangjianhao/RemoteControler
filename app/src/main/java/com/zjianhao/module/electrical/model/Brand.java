@@ -61,10 +61,6 @@ public class Brand implements Comparable<Brand> {
         if (index == null) {
             System.out.println(name);
             ArrayList<HanziToPinyin.Token> tokens = HanziToPinyin.getInstance().get(name);
-            System.out.println(tokens.size());
-            for (HanziToPinyin.Token token : tokens) {
-                System.out.println(token.target);
-            }
             char[] chars = tokens.get(0).target.toUpperCase().toCharArray();
             index = chars[0] + "";
         }

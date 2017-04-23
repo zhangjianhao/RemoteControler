@@ -37,6 +37,12 @@
             >
             </activity>
         <activity android:name="com.zjianhao.module.electrical.ui.BrandListActivity" />
+        <activity android:name="com.zjianhao.module.electrical.ui.AddControllerActivity" />
+        <activity android:name="com.zjianhao.module.electrical.ui.AirConditionControllerAty" />
+        <activity android:name="com.zjianhao.module.electrical.ui.DeviceControllerAty" />
+        <activity android:name="com.zjianhao.module.electrical.ui.ConfirmDeviceAty" />
+
+
     </application>
 
 </manifest>

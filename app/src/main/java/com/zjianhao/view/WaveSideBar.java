@@ -12,6 +12,8 @@ import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
 
+import com.zjianhao.universalcontroller.R;
+
 import java.util.Arrays;
 
 
@@ -122,13 +124,13 @@ public class WaveSideBar extends View {
         super(context, attrs, defStyleAttr);
         mDisplayMetrics = context.getResources().getDisplayMetrics();
 
-        TypedArray typedArray = context.obtainStyledAttributes(attrs, com.gjiazhe.wavesidebar.R.styleable.WaveSideBar);
-        mLazyRespond = typedArray.getBoolean(com.gjiazhe.wavesidebar.R.styleable.WaveSideBar_sidebar_lazy_respond, false);
-        mTextColor = typedArray.getColor(com.gjiazhe.wavesidebar.R.styleable.WaveSideBar_sidebar_text_color, Color.GRAY);
-        mTextSize = typedArray.getDimension(com.gjiazhe.wavesidebar.R.styleable.WaveSideBar_sidebar_text_size, sp2px(DEFAULT_TEXT_SIZE));
-        mMaxOffset = typedArray.getDimension(com.gjiazhe.wavesidebar.R.styleable.WaveSideBar_sidebar_max_offset, dp2px(DEFAULT_MAX_OFFSET));
-        mSideBarPosition = typedArray.getInt(com.gjiazhe.wavesidebar.R.styleable.WaveSideBar_sidebar_position, POSITION_RIGHT);
-        mTextAlignment = typedArray.getInt(com.gjiazhe.wavesidebar.R.styleable.WaveSideBar_sidebar_text_alignment, TEXT_ALIGN_CENTER);
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.WaveSideBar);
+        mLazyRespond = typedArray.getBoolean(R.styleable.WaveSideBar_sidebar_lazy_respond, false);
+        mTextColor = typedArray.getColor(R.styleable.WaveSideBar_sidebar_text_color, Color.GRAY);
+        mTextSize = typedArray.getDimension(R.styleable.WaveSideBar_sidebar_text_size, sp2px(DEFAULT_TEXT_SIZE));
+        mMaxOffset = typedArray.getDimension(R.styleable.WaveSideBar_sidebar_max_offset, dp2px(DEFAULT_MAX_OFFSET));
+        mSideBarPosition = typedArray.getInt(R.styleable.WaveSideBar_sidebar_position, POSITION_RIGHT);
+        mTextAlignment = typedArray.getInt(R.styleable.WaveSideBar_sidebar_text_alignment, TEXT_ALIGN_CENTER);
         typedArray.recycle();
 
         mIndexItems = DEFAULT_INDEX_ITEMS;

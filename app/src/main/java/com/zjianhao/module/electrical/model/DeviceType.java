@@ -2,6 +2,7 @@ package com.zjianhao.module.electrical.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.zjianhao.universalcontroller.Constant;
 
 /**
  * Created by 张建浩（Clarence) on 2017-4-18 14:26.
@@ -37,7 +38,7 @@ public class DeviceType {
     }
 
     public String getImgUrl() {
-        return imgUrl;
+        return Constant.PROJECT_URL + imgUrl;
     }
 
     public void setImgUrl(String imgUrl) {

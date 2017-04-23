@@ -1,5 +1,6 @@
 package com.zjianhao.module.electrical.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -61,7 +62,11 @@ public class BrandListActivity extends NavigatorActivity implements OnSelectInde
             @Override
             public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
                 Brand brand = brands.get(position);
-
+                Intent intent = new Intent(BrandListActivity.this, AddControllerActivity.class);
+                intent.putExtra("type_id", typeId);
+                intent.putExtra("brand_id", brand.getBrandId());
+                startActivity(intent);
+                finish();
             }
 
             @Override
