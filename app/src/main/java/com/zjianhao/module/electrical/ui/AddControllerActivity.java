@@ -143,7 +143,7 @@ public class AddControllerActivity extends NavigatorActivity implements MultiIte
         KeyTest keyTest = keyTests.get(position);
         keyEffectContainer.setVisibility(View.VISIBLE);
         Keyas key = keyTest.getKeys().get(0);
-        infraredUtil.send(key.getFrequency(), key.getPattern());
+        infraredUtil.send(key.getData());
     }
 
     @Override
