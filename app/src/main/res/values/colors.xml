@@ -6,6 +6,8 @@
 
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
+    <color name="line_gray">#dddddd</color>
+
 
     <!--
     pc遥控器所需颜色

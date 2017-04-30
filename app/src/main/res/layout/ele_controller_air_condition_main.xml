@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/ic_temperature_rl"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/colorAccent"
+        app:layout_heightPercent="45%">
+
+        <TextView
+            android:id="@+id/aa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="当前状态:"
+            android:textColor="@color/white"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/air_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:layout_toRightOf="@id/aa"
+            android:text="工作中"
+            android:textColor="@color/white"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/air_temperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="26"
+            android:textColor="@color/white"
+            android:textSize="100sp" />
+
+        <com.zjianhao.view.IconFont
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/air_temperature"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/air_temperature"
+            android:text="&#xe611;"
+            android:textColor="@color/white"
+
+            android:textSize="20sp" />
+
+        <com.zjianhao.view.IconFont
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/air_temperature"
+            android:layout_alignBottom="@id/air_temperature"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/air_temperature"
+            android:text="&#xe627;"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
+
+
+        <TextView
+            android:id="@+id/air_mode_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="20dp"
+            android:text="制冷"
+            android:textColor="@color/white" />
+
+        <com.zjianhao.view.IconFont
+            android:id="@+id/air_mode_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="6dp"
+            android:layout_marginRight="4dp"
+            android:layout_toLeftOf="@id/air_mode_text"
+            android:text="&#xe8e2;"
+            android:textColor="@color/white"
+            android:textSize="30sp" />
+
+    </RelativeLayout>
+
+    <android.support.percent.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@id/ic_temperature_rl"
+        app:layout_heightPercent="55%">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <View
+                    android:id="@+id/dd_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_centerInParent="true"
+                    android:background="@color/line_gray" />
+
+
+                <RelativeLayout
+                    android:id="@+id/bb_pl"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_above="@id/dd_line"
+                    android:background="@color/white">
+
+                    <View
+                        android:id="@+id/bb_line"
+                        android:layout_width="1px"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:background="@color/line_gray" />
+
+                    <LinearLayout
+                        android:id="@+id/air_cmd_on"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_toLeftOf="@id/bb_line"
+                        android:background="@drawable/layout_item_press"
+                        android:gravity="center"
+                        android:clickable="true"
+                        android:orientation="vertical">
+
+                        <com.zjianhao.view.IconFont
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="4dp"
+                            android:text="&#xe6c7;"
+                            android:textColor="@color/green"
+                            android:textSize="36sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="4dp"
+                            android:layout_marginTop="4dp"
+                            android:gravity="center"
+                            android:text="开"
+                            android:textColor="@color/green" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/air_cmd_off"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginLeft="1dp"
+                        android:layout_toRightOf="@id/bb_line"
+                        android:background="@drawable/layout_item_press"
+                        android:gravity="center"
+                        android:clickable="true"
+                        android:orientation="vertical">
+
+                        <com.zjianhao.view.IconFont
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="4dp"
+                            android:text="&#xe6c7;"
+                            android:textColor="@color/red_color"
+                            android:textSize="36sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="3dp"
+                            android:layout_marginTop="4dp"
+                            android:gravity="center"
+                            android:text="关"
+                            android:textColor="@color/red_color" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/dd_line"
+                    android:background="@color/white">
+
+                    <View
+                        android:id="@+id/cc_line"
+                        android:layout_width="1px"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:background="@color/line_gray" />
+
+                    <LinearLayout
+                        android:id="@+id/air_cmd_increase"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_toLeftOf="@id/cc_line"
+                        android:background="@drawable/layout_item_press"
+                        android:gravity="center"
+                        android:clickable="true"
+                        android:orientation="horizontal">
+
+                        <com.zjianhao.view.IconFont
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="&#xe601;"
+                            android:textColor="@color/green"
+                            android:textSize="36sp" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/air_cmd_decrease"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginLeft="1dp"
+                        android:layout_toRightOf="@id/cc_line"
+                        android:background="@drawable/layout_item_press"
+                        android:gravity="center"
+                        android:clickable="true"
+                        android:orientation="horizontal">
+
+                        <com.zjianhao.view.IconFont
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="4dp"
+                            android:text="&#xe607;"
+                            android:textColor="@color/red_color"
+                            android:textSize="36sp" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+            </RelativeLayout>
+
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <at.markushi.ui.CircleButton
+                    android:id="@+id/air_cmd_mode"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:layout_gravity="center"
+                    app:cb_color="@color/colorAccent"
+                    app:cb_pressedRingWidth="8dp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="vertical">
+
+                    <com.zjianhao.view.IconFont
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="&#xe63b;"
+                        android:textColor="@color/white"
+                        android:textSize="36sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="模式"
+                        android:textColor="@color/white" />
+
+                </LinearLayout>
+
+
+            </FrameLayout>
+        </FrameLayout>
+
+
+    </android.support.percent.PercentRelativeLayout>
+
+
+</android.support.percent.PercentRelativeLayout>

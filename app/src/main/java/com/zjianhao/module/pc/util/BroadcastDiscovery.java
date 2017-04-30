@@ -70,7 +70,7 @@ public class BroadcastDiscovery extends Thread {
 
     public void stopDiscovery() {
         timerStop = true;
-        socket.disconnect();
+//        socket.disconnect();
         socket = null;
 
     }

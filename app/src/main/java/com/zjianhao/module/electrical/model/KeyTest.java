@@ -2,6 +2,7 @@ package com.zjianhao.module.electrical.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.zjianhao.entity.Keyas;
 
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class KeyTest {
     private int orderno;
 
     @JsonProperty("list")
-    private List<Key> keys;
+    private List<Keyas> keys;
 
     public int getDeviceId() {
         return deviceId;
@@ -68,11 +69,11 @@ public class KeyTest {
         this.orderno = orderno;
     }
 
-    public List<Key> getKeys() {
+    public List<Keyas> getKeys() {
         return keys;
     }
 
-    public void setKeys(List<Key> keys) {
+    public void setKeys(List<Keyas> keys) {
         this.keys = keys;
     }
 }

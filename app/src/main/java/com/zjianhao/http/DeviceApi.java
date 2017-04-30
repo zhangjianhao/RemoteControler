@@ -1,5 +1,6 @@
 package com.zjianhao.http;
 
+import com.zjianhao.entity.Keyas;
 import com.zjianhao.module.electrical.model.Brand;
 import com.zjianhao.module.electrical.model.DeviceType;
 import com.zjianhao.module.electrical.model.KeyTest;
@@ -23,7 +24,6 @@ public interface DeviceApi {
 
     /**
      * 获取可遥控的设备类型
-     *
      * @return
      */
     @GET("device/types")
@@ -32,7 +32,6 @@ public interface DeviceApi {
 
     /**
      * 获取指定类型设备的品牌列表
-     *
      * @param typeId
      * @return
      */
@@ -44,7 +43,6 @@ public interface DeviceApi {
 
     /**
      * 获取制定类型品牌的测试按键列表
-     *
      * @param typeId
      * @param brandId
      * @return
@@ -54,6 +52,58 @@ public interface DeviceApi {
     Call<ResponseHeader<List<KeyTest>>> getKeyTests(
             @Field("type_id") int typeId,
             @Field("brand_id") int brandId);
+
+
+    /**
+     * 获取普通设备按键列表(不包括空调)
+     *
+     * @param deviceId
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("device/key_list")
+    Call<ResponseHeader<List<Keyas>>> getKeyList(
+            @Field("device_id") int deviceId);
+
+    /**
+     * 获取普通设备按键数据
+     *
+     * @param deviceId
+     * @param cmd
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("device/key_data")
+    Call<ResponseHeader<String>> getKeyData(
+            @Field("device_id") int deviceId,
+            @Field("cmd") String cmd
+    );
+
+    /**
+     * 获取空调按键数据
+     *
+     * @param deviceId
+     * @param cmd
+     * @param temp
+     * @return
+     */
+
+    @FormUrlEncoded
+    @POST("device/air_data")
+    Call<ResponseHeader<String>> getAirKeyData(
+            @Field("device_id") int deviceId,
+            @Field("cmd") String cmd,
+            @Field("temp") int temp
+    );
+
+
+
+
+
+
+
+
+
 
 
 

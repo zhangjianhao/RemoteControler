@@ -63,7 +63,7 @@ public class MainActivity extends BaseActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        changeFragment(ELECTRICAL_FRAGMENT);
+        changeFragment(PC_FRAGMENT);
     }
 
 

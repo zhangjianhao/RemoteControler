@@ -96,6 +96,7 @@ public class DevicePopupWindow extends PopupWindow implements DeviceTypeAdapter.
             @Override
             public void onFailure(Throwable t) {
                 super.onFailure(t);
+                dismiss();
                 deviceLoadProgress.setVisibility(View.GONE);
             }
         });

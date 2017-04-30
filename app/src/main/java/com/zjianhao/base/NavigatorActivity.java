@@ -37,7 +37,6 @@ public class NavigatorActivity extends BaseActivity {
                 finish();
             }
         });
-        mainToolbar.setTitleTextColor(Color.WHITE);
         navigatorContent = (LinearLayout)findViewById(R.id.navigator_content);
         centerTitle = (TextView)findViewById(R.id.center_title);
 //        setSupportActionBar(mainToolbar);
@@ -48,6 +47,11 @@ public class NavigatorActivity extends BaseActivity {
     protected void setTitle(String title){
         centerTitle.setVisibility(View.VISIBLE);
         centerTitle.setText(title);
+    }
+
+    protected void setNavigatorText(String text) {
+        mainToolbar.setTitle(text);
+        mainToolbar.setTitleTextColor(Color.WHITE);
     }
 
     public void setContentView(int layoutResID) {

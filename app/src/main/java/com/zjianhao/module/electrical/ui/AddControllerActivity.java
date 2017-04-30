@@ -18,12 +18,14 @@ import com.zjianhao.adapter.recyclerview.MultiItemTypeAdapter;
 import com.zjianhao.adapter.recyclerview.base.ViewHolder;
 import com.zjianhao.adapter.recyclerview.wrapper.SpaceItemDecoration;
 import com.zjianhao.base.NavigatorActivity;
+import com.zjianhao.entity.Keyas;
 import com.zjianhao.http.DefaultCallback;
 import com.zjianhao.http.DeviceApi;
 import com.zjianhao.http.ResponseHeader;
 import com.zjianhao.http.RetrofitManager;
 import com.zjianhao.module.electrical.ScrollSpeedLinearLayoutManger;
 import com.zjianhao.module.electrical.model.KeyTest;
+import com.zjianhao.module.electrical.util.InfraredUtil;
 import com.zjianhao.module.pc.util.CmdUtil;
 import com.zjianhao.universalcontroller.R;
 
@@ -63,6 +65,7 @@ public class AddControllerActivity extends NavigatorActivity implements MultiIte
     private CommonAdapter<KeyTest> adapter;
     private String keyPosition;
     private int currentPosition;
+    private InfraredUtil infraredUtil;
 
 
     @Override
@@ -92,7 +95,7 @@ public class AddControllerActivity extends NavigatorActivity implements MultiIte
         adapter.setOnItemClickListener(this);
         keyTestList.setAdapter(adapter);
         int spacingInPixels = getResources().getDimensionPixelSize(R.dimen.recycle_view_item_spacing);
-        keyTestList.addItemDecoration(new SpaceItemDecoration(spacingInPixels));
+        keyTestList.addItemDecoration(new SpaceItemDecoration(0, 0, spacingInPixels, spacingInPixels));
         keyTestList.setOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
@@ -115,6 +118,7 @@ public class AddControllerActivity extends NavigatorActivity implements MultiIte
         });
         keyPosition = getResources().getString(R.string.test_key_position);
         keyTestNum.setText(String.format(keyPosition, 0, 0));
+        infraredUtil = new InfraredUtil(this);
         loadKeyTestData();
     }
 
@@ -138,8 +142,8 @@ public class AddControllerActivity extends NavigatorActivity implements MultiIte
     public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
         KeyTest keyTest = keyTests.get(position);
         keyEffectContainer.setVisibility(View.VISIBLE);
-        System.out.println(keyTest.getName() + ":" + keyTest.getKeys().get(0).getData());
-
+        Keyas key = keyTest.getKeys().get(0);
+        infraredUtil.send(key.getFrequency(), key.getPattern());
     }
 
     @Override
@@ -164,34 +168,11 @@ public class AddControllerActivity extends NavigatorActivity implements MultiIte
                 intent.putExtra("brand_name", keyTest.getName());
                 intent.putExtra("type_id", typeId);
                 intent.putExtra("device_id", keyTest.getDeviceId());
+                intent.putExtra("brand_id", keyTest.getBrandId());
                 startActivity(intent);
-//                finish();
+                finish();
                 break;
-
         }
     }
 
-    public void startTargetAty() {
-        Intent intent = null;
-        switch (typeId) {
-            case 1:
-
-                break;
-            case 2:
-                break;
-            case 3:
-                intent = new Intent(this, AirConditionControllerAty.class);
-                break;
-            case 4:
-                break;
-            case 5:
-                break;
-            case 6:
-                break;
-
-        }
-        if (intent != null)
-            startActivity(intent);
-
-    }
 }
