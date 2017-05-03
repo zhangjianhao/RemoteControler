@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/aa"
+        android:layout_width="match_parent"
+        app:layout_heightPercent="45%"
+        android:background="@color/colorAccent">
+
+        <com.zjianhao.view.IconFont
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="&#xe6c8;"
+            android:textColor="@color/white"
+            android:layout_centerInParent="true"
+            android:textSize="160sp" />
+
+    </RelativeLayout>
+
+
+    <android.support.percent.PercentRelativeLayout
+
+        android:layout_width="match_parent"
+        app:layout_heightPercent="55%"
+        android:layout_below="@id/aa">
+
+        <LinearLayout
+            android:id="@+id/bb_aa"
+            android:layout_width="match_parent"
+            app:layout_heightPercent="40%"
+            android:orientation="horizontal"
+            android:weightSum="1.2">
+
+            <LinearLayout
+                android:id="@+id/fan_power"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.4"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/layout_item_press"
+                android:clickable="true">
+
+                <com.zjianhao.view.IconFont
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="&#xe6c7;"
+                    android:textColor="@color/red_color"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="电源"
+                    android:layout_marginTop="5dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/fan_mode"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.4"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/layout_item_press"
+                android:clickable="true"
+
+                >
+
+                <com.zjianhao.view.IconFont
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="&#xe646;"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="模式"
+                    android:layout_marginTop="5dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/fan_mute"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.4"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/layout_item_press"
+                android:clickable="true"
+
+                >
+
+                <com.zjianhao.view.IconFont
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="&#xe61e;"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="静音"
+                    android:layout_marginTop="5dp" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bb_bb"
+            android:layout_width="match_parent"
+            app:layout_heightPercent="40%"
+            android:orientation="horizontal"
+            android:layout_below="@id/bb_aa"
+            android:weightSum="1.2">
+
+            <LinearLayout
+                android:id="@+id/wind_speed"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.4"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/layout_item_press"
+                android:clickable="true"
+
+                >
+
+                <com.zjianhao.view.IconFont
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="&#xe613;"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="风速"
+                    android:layout_marginTop="5dp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/fan_timer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.4"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@color/white"
+                android:clickable="true">
+
+                <com.zjianhao.view.IconFont
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="&#xe8fe;"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="定时"
+                    android:layout_marginTop="5dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/fan_shake"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.4"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/layout_item_press"
+                android:clickable="true"
+
+                >
+
+                <com.zjianhao.view.IconFont
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="&#xe84d;"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="摇头"
+                    android:layout_marginTop="5dp" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bb_cc"
+            android:layout_width="match_parent"
+            app:layout_heightPercent="20%"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:layout_below="@id/bb_bb">
+
+        </LinearLayout>
+
+    </android.support.percent.PercentRelativeLayout>
+
+
+</android.support.percent.PercentRelativeLayout>

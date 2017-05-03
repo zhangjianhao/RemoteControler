@@ -61,7 +61,7 @@ public class AirConditionControllerAty extends NavigatorActivity {
         setContentView(R.layout.ele_controller_air_condition_main);
         ButterKnife.inject(this);
         infraredUtil = new InfraredUtil(this);
-        deviceId = getIntent().getIntExtra("deviceId", 0);
+        deviceId = getIntent().getIntExtra("device_id", 0);
         setTitle(getIntent().getStringExtra("device_name"));
         daoUtil = new DaoUtil(this);
         airCondition = new AirCondition();
@@ -84,7 +84,7 @@ public class AirConditionControllerAty extends NavigatorActivity {
                 increaseTemp();
                 break;
             case R.id.air_cmd_decrease:
-
+                decreaseTemp();
                 break;
             case R.id.air_cmd_mode:
                 changeMode();
@@ -105,7 +105,7 @@ public class AirConditionControllerAty extends NavigatorActivity {
         airState.setText(airCondition.getCurrentState());
         airModeImg.setVisibility(View.GONE);
         airModeText.setVisibility(View.GONE);
-        sendCmd(airCondition.getCurrentMode(), airCondition.getTemperature());
+        sendCmd(AirCondition.OFF, airCondition.getTemperature());
     }
 
     private void sendCmd(String cmd, int temp) {

@@ -8,10 +8,5 @@
         android:title="搜索"
         app:showAsAction="ifRoom"/>
 
-    <!--<item android:id="@+id/share_menu"-->
-        <!--android:orderInCategory="100"-->
-        <!--android:icon="@drawable/ic_share_white_24dp"-->
-        <!--android:title="@string/search"-->
-        <!--app:showAsAction="ifRoom"/>-->
 
 </menu>

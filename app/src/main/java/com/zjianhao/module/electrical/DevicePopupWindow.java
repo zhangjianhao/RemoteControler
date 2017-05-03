@@ -72,12 +72,10 @@ public class DevicePopupWindow extends PopupWindow implements DeviceTypeAdapter.
                 return true;
             }
         });
+
+
         loadDeviceType();
     }
-
-
-
-
 
     public void loadDeviceType() {
         final DeviceApi deviceApi = RetrofitManager.getDeviceApi();
@@ -85,10 +83,6 @@ public class DevicePopupWindow extends PopupWindow implements DeviceTypeAdapter.
         deviceTypes.enqueue(new DefaultCallback<List<DeviceType>>(deviceTypeGrid) {
             @Override
             public void onResponse(List<DeviceType> data) {
-                System.out.println("load over" + data.size());
-                for (DeviceType deviceType : data) {
-                    System.out.println(deviceType.getName());
-                }
                 deviceLoadProgress.setVisibility(View.GONE);
                 adapter.setDatas(data);
             }

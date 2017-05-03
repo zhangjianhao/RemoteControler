@@ -44,6 +44,13 @@
         <activity android:name="com.zjianhao.module.electrical.ui.DeviceControllerAty" />
         <activity android:name="com.zjianhao.module.electrical.ui.ConfirmDeviceAty" />
         <activity android:name="com.zjianhao.module.electrical.ui.CameraControllerAty" />
+        <activity android:name="com.zjianhao.module.electrical.ui.TVControllerAty" />
+        <activity android:name="com.zjianhao.module.electrical.ui.TVBoxControllerAty" />
+        <activity android:name="com.zjianhao.module.electrical.ui.SmartBoxControllerAty" />
+        <activity android:name="com.zjianhao.module.electrical.ui.ProjectorControllerAty" />
+        <activity android:name="com.zjianhao.module.electrical.ui.FanControllerAty" />
+        <activity android:name="com.zjianhao.module.electrical.ui.DVDControllerAty" />
+        <activity android:name="com.zjianhao.ui.WebContentAty" />
 
 
     </application>

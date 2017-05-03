@@ -1,6 +1,7 @@
 package com.zjianhao.universalcontroller;
 
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -20,6 +21,7 @@ import com.zjianhao.base.BaseActivity;
 import com.zjianhao.module.device.SmartDeviceFragment;
 import com.zjianhao.module.electrical.ui.ElectricalFragment;
 import com.zjianhao.module.pc.PCFragment;
+import com.zjianhao.ui.WebContentAty;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -63,7 +65,7 @@ public class MainActivity extends BaseActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        changeFragment(PC_FRAGMENT);
+        changeFragment(ELECTRICAL_FRAGMENT);
     }
 
 
@@ -116,7 +118,11 @@ public class MainActivity extends BaseActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        }else {
+        } else if (currentFragment instanceof ElectricalFragment) {
+            boolean isShow = ((ElectricalFragment) currentFragment).hidePopupWindow();
+            if (!isShow)
+                super.onBackPressed();
+        } else {
             super.onBackPressed();
         }
     }
@@ -178,6 +184,14 @@ public class MainActivity extends BaseActivity
 
         } else if (id == R.id.nav_setting) {
 
+        } else if (id == R.id.about_author) {
+            Intent intent = new Intent(this, WebContentAty.class);
+            intent.putExtra("url", Constant.AUTHRO_URL);
+            startActivity(intent);
+        } else if (id == R.id.author_blogs) {
+            Intent intent = new Intent(this, WebContentAty.class);
+            intent.putExtra("url", Constant.AUTHRO_BLOGS);
+            startActivity(intent);
         }
         invalidateOptionsMenu();
 

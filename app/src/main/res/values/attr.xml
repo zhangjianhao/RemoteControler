@@ -5,6 +5,18 @@
        <attr name="border_color" format="color" />
    </declare-styleable>
 
+
+    <declare-styleable name="IconFontButton">
+        <attr name="stroke_color" format="color" />
+        <attr name="button_shape" format="enum">
+            <enum name="rectangle" value="0" />
+            <enum name="oval" value="1" />
+            <enum name="line" value="2" />
+            <enum name="ring" value="3" />
+        </attr>
+        <attr name="radius" format="dimension" />
+    </declare-styleable>
+
     <declare-styleable name="WaveSideBar">
         <attr name="sidebar_lazy_respond" format="boolean" />
         <attr name="sidebar_text_size" format="dimension" />

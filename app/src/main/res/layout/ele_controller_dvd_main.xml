@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/aa"
+        android:layout_width="match_parent"
+        android:background="@color/colorAccent"
+        app:layout_heightPercent="45%">
+
+        <Button
+            android:id="@+id/dvd_ok"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerInParent="true"
+            android:layout_margin="20dp"
+            android:background="@drawable/white_circle_button"
+            android:text="ok"
+
+            />
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/dvd_ok"
+            android:layout_centerHorizontal="true">
+
+            <at.markushi.ui.CircleButton
+                android:id="@+id/dvd_up"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:cb_color="@color/colorAccent" />
+
+            <com.zjianhao.view.IconFont
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="&#xe650;"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+
+        </FrameLayout>
+
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/dvd_ok">
+
+            <at.markushi.ui.CircleButton
+                android:id="@+id/dvd_left"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                app:cb_color="@color/colorAccent" />
+
+            <com.zjianhao.view.IconFont
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="&#xe725;"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dvd_ok"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true">
+
+            <at.markushi.ui.CircleButton
+                android:id="@+id/dvd_down"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                app:cb_color="@color/colorAccent" />
+
+            <com.zjianhao.view.IconFont
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="&#xe603;"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/dvd_ok">
+
+            <at.markushi.ui.CircleButton
+                android:id="@+id/dvd_right"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                app:cb_color="@color/colorAccent" />
+
+            <com.zjianhao.view.IconFont
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="&#xe726;"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+
+        </FrameLayout>
+
+
+    </RelativeLayout>
+
+
+    <android.support.percent.PercentRelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_below="@id/aa"
+        app:layout_heightPercent="55%">
+
+        <LinearLayout
+            android:id="@+id/bb_aa"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="1"
+            app:layout_heightPercent="33%">
+
+            <LinearLayout
+                android:id="@+id/dvd_power"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.25"
+                android:background="@drawable/layout_item_press"
+                android:clickable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <com.zjianhao.view.IconFont
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="&#xe6c7;"
+                    android:textColor="@color/red_color"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="电源" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/dvd_menu"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.25"
+                android:background="@drawable/layout_item_press"
+                android:clickable="true"
+                android:gravity="center"
+                android:orientation="vertical"
+
+                >
+
+                <com.zjianhao.view.IconFont
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="&#xe646;"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="菜单" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/dvd_mute"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.25"
+                android:background="@drawable/layout_item_press"
+                android:clickable="true"
+                android:gravity="center"
+                android:orientation="vertical"
+
+                >
+
+                <com.zjianhao.view.IconFont
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="&#xe61e;"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="静音" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/dvd_exit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.25"
+                android:background="@drawable/layout_item_press"
+                android:clickable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <com.zjianhao.view.IconFont
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="&#xe61e;"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="退出" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/bb_bb"
+            android:layout_width="match_parent"
+            android:layout_below="@id/bb_aa"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:weightSum="1.2"
+            app:layout_heightPercent="33%">
+
+            <LinearLayout
+                android:id="@+id/dvd_previous"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.20"
+                android:background="@drawable/layout_item_press"
+                android:clickable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <com.zjianhao.view.IconFont
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="&#xe725;"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="上一页" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/dvd_back_fast"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"
+                android:background="@drawable/layout_item_press"
+                android:clickable="true"
+                android:gravity="center"
+                android:orientation="vertical"
+
+                >
+
+                <com.zjianhao.view.IconFont
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="&#xe64d;"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="快退" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/dvd_play"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"
+                android:background="@drawable/layout_item_press"
+                android:clickable="true"
+                android:gravity="center"
+                android:orientation="vertical"
+
+                >
+
+                <com.zjianhao.view.IconFont
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="&#xe6bb;"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="播放" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/dvd_pause"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"
+                android:background="@drawable/layout_item_press"
+                android:clickable="true"
+                android:gravity="center"
+                android:orientation="vertical"
+
+                >
+
+                <com.zjianhao.view.IconFont
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="&#xe696;"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="暂停" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/dvd_go_fast"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"
+                android:background="@drawable/layout_item_press"
+                android:clickable="true"
+                android:gravity="center"
+                android:orientation="vertical"
+
+                >
+
+                <com.zjianhao.view.IconFont
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="&#xe64e;"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="快进" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/dvd_next"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"
+                android:background="@drawable/layout_item_press"
+                android:clickable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <com.zjianhao.view.IconFont
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="&#xe726;"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="下一页" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/bb_cc"
+            android:layout_width="match_parent"
+            android:layout_below="@id/bb_bb"
+            android:orientation="horizontal"
+            android:weightSum="1.6"
+            app:layout_heightPercent="33%">
+
+            <LinearLayout
+                android:id="@+id/sound_sub"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.4"
+                android:background="@drawable/layout_item_press"
+                android:clickable="true"
+                android:gravity="center"
+                android:orientation="vertical"
+
+                >
+
+                <com.zjianhao.view.IconFont
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="&#xe607;"
+                    android:textSize="30sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.4"
+                android:background="@color/white"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="音量" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/sound_add"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.4"
+                android:background="@drawable/layout_item_press"
+                android:clickable="true"
+                android:gravity="center"
+                android:orientation="vertical"
+
+                >
+
+                <com.zjianhao.view.IconFont
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="&#xe601;"
+                    android:textSize="30sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/num_keys"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.4"
+                android:background="@drawable/layout_item_press"
+                android:clickable="true"
+                android:gravity="center"
+                android:orientation="vertical"
+
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="数字键" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </android.support.percent.PercentRelativeLayout>
+
+
+</android.support.percent.PercentRelativeLayout>

@@ -22,8 +22,12 @@
     <color name="red_color">#F44336</color>
     <color name="dark_red">#D32F2F</color>
     <color name="amber_yellow">#FBC02D</color>
+
     <color name="orange">#F57C00</color>
     <color name="button_color">#ff5d93ea</color>
+    <color name="purple">#673AB7</color>
+    <color name="cyan">#009688</color>
+    <color name="amber">#FFA000</color>
 
 
 </resources>

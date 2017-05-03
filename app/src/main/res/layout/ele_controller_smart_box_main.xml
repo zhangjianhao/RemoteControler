@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/aa"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:weightSum="1.2"
+        android:background="@color/line_gray"
+        android:paddingBottom="2px"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/smart_box_power"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.4"
+            android:background="@color/white"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <com.zjianhao.view.IconFont
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="&#xe6c7;"
+                android:textSize="25sp"
+                android:textColor="@color/red_color" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="电源"
+                android:layout_marginTop="4dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/smart_box_menu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.4"
+            android:background="@color/white"
+            android:layout_marginRight="1px"
+            android:layout_marginLeft="1px"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <com.zjianhao.view.IconFont
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="&#xe646;"
+                android:textSize="25sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="菜单"
+                android:layout_marginTop="4dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/smart_box_back"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.4"
+            android:background="@color/white"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_marginLeft="1px">
+
+            <com.zjianhao.view.IconFont
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="&#xe612;"
+                android:textSize="25sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="返回"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/bb"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@color/white"
+        android:layout_alignParentBottom="true"
+
+        >
+
+        <FrameLayout
+            android:id="@+id/bb_aa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_centerVertical="true">
+
+            <at.markushi.ui.CircleButton
+                android:id="@+id/sound_sub"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                app:cb_color="@color/colorAccent" />
+
+            <com.zjianhao.view.IconFont
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="&#xe607;"
+                android:textSize="25sp"
+                android:layout_gravity="center" />
+
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/bb_bb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="音量"
+            android:textSize="18sp"
+            android:layout_toRightOf="@id/bb_aa"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp" />
+
+        <FrameLayout
+            android:id="@+id/bb_cc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/bb_bb">
+
+            <at.markushi.ui.CircleButton
+                android:id="@+id/sound_add"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                app:cb_color="@color/colorAccent" />
+
+            <com.zjianhao.view.IconFont
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="&#xe601;"
+                android:textSize="25sp"
+                android:layout_gravity="center" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/bb_dd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp">
+
+            <at.markushi.ui.CircleButton
+                android:id="@+id/smart_box_home"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                app:cb_color="@color/colorAccent" />
+
+            <com.zjianhao.view.IconFont
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="&#xe600;"
+                android:textSize="25sp"
+                android:layout_gravity="center" />
+
+        </FrameLayout>
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_above="@id/bb"
+        android:layout_below="@id/aa"
+        android:gravity="center"
+        android:padding="20dp">
+
+        <Button
+            android:id="@+id/tvbox_ok"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerInParent="true"
+            android:textColor="@color/white"
+            android:background="@drawable/pc_enter" />
+
+
+        <Button
+            android:id="@+id/tvbox_up"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/pc_up"
+            android:layout_above="@id/tvbox_ok"
+            android:layout_marginBottom="10dp" />
+
+        <Button
+            android:id="@+id/tvbox_left"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="@drawable/pc_left"
+            android:layout_toLeftOf="@id/tvbox_ok"
+            android:layout_marginRight="10dp" />
+
+        <Button
+            android:id="@+id/tvbox_right"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="@drawable/pc_right"
+            android:layout_toRightOf="@id/tvbox_ok"
+            android:layout_marginLeft="10dp"
+
+            />
+
+        <Button
+            android:id="@+id/tvbox_down"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/pc_down"
+            android:layout_below="@id/tvbox_ok"
+            android:layout_marginTop="10dp" />
+
+
+        <!--</RelativeLayout>-->
+        <!--<at.markushi.ui.CircleButton-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--app:cb_color="@color/colorAccent"-->
+        <!--/>-->
+
+        <!--<at.markushi.ui.CircleButton-->
+        <!--android:layout_width="80dp"-->
+        <!--android:layout_height="80dp"-->
+        <!--android:layout_gravity="center"-->
+        <!--app:cb_color="@color/white"-->
+        <!--/>-->
+
+        <!--<com.zjianhao.view.IconFont-->
+        <!--android:id="@+id/smart_box_up"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textColor="@color/white"-->
+        <!--android:text="&#xe650;"-->
+        <!--android:translationZ="10dp"-->
+        <!--android:layout_gravity="center_horizontal"-->
+        <!--android:layout_marginTop="20dp"-->
+        <!--android:textSize="50sp"-->
+        <!--/>-->
+
+        <!--<com.zjianhao.view.IconFont-->
+        <!--android:id="@+id/smart_box_left"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textColor="@color/white"-->
+        <!--android:text="&#xe725;"-->
+        <!--android:translationZ="10dp"-->
+        <!--android:layout_gravity="center_vertical"-->
+        <!--android:layout_marginLeft="40dp"-->
+        <!--android:textSize="50sp"-->
+        <!--/>-->
+
+        <!--<com.zjianhao.view.IconFont-->
+        <!--android:id="@+id/smart_box_right"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textColor="@color/white"-->
+        <!--android:text="&#xe726;"-->
+        <!--android:translationZ="10dp"-->
+        <!--android:layout_gravity="center_vertical|right"-->
+        <!--android:layout_marginRight="40dp"-->
+        <!--android:textSize="50sp"-->
+        <!--/>-->
+
+        <!--<com.zjianhao.view.IconFont-->
+        <!--android:id="@+id/smart_box_down"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textColor="@color/white"-->
+        <!--android:text="&#xe603;"-->
+        <!--android:translationZ="10dp"-->
+        <!--android:layout_gravity="center_horizontal|bottom"-->
+        <!--android:textSize="50sp"-->
+        <!--android:layout_marginBottom="20dp"-->
+        <!--/>-->
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

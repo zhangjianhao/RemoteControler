@@ -31,6 +31,14 @@
                 android:id="@+id/nav_about_software"
                 android:icon="@drawable/ic_menu_send"
                 android:title="关于本软件" />
+            <item
+                android:id="@+id/about_author"
+                android:icon="@drawable/ic_about_author"
+                android:title="关于作者" />
+            <item
+                android:id="@+id/author_blogs"
+                android:icon="@drawable/ic_author_blogs"
+                android:title="作者博客" />
         </menu>
     </item>
 

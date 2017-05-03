@@ -164,7 +164,7 @@ public class KeyasDao extends AbstractDao<Keyas, Long> {
 
 
     public Keyas queryKey(int deviceId, String cmd) {
-        List<Keyas> list = queryBuilder().where(AirCmdDao.Properties.Device_id.eq(deviceId), AirCmdDao.Properties.Cmd.eq(cmd)).list();
+        List<Keyas> list = queryBuilder().where(Properties.Device_id.eq(deviceId), Properties.Cmd.eq(cmd)).list();
         if (list.size() > 0)
             return list.get(0);
         return null;
@@ -173,6 +173,10 @@ public class KeyasDao extends AbstractDao<Keyas, Long> {
     public List<Keyas> queryKeys(int deviceId) {
         return queryBuilder().where(Properties.Device_id.eq(deviceId)).list();
 
+    }
+
+    public void delete(int deviceId) {
+        queryBuilder().where(Properties.Device_id.eq(deviceId)).buildDelete();
     }
 
 }

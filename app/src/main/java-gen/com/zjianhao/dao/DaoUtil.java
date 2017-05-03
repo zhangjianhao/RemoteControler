@@ -54,10 +54,11 @@ public class DaoUtil {
 
     public AirCmd getAirCmd(int deviceId, String cmd, String temp) {
         AirCmdDao airCmdDao = manager.getDaoSession().getAirCmdDao();
-        if ("auto".equals(cmd) || "fans".equals(cmd) || "water".equals(cmd) || "off".equals(cmd)) {
+        if ("off".equals(cmd)) {
             List<AirCmd> airCmd = airCmdDao.getAirCmd(deviceId, cmd);
             if (airCmd.size() > 0)
                 return airCmd.get(0);
+            System.out.println(cmd + ": query no");
             return null;
 
         } else
@@ -66,6 +67,21 @@ public class DaoUtil {
 
     public void insertAirCmd(AirCmd airCmd) {
         manager.getDaoSession().getAirCmdDao().insert(airCmd);
+    }
+
+    public void updateKey(Keyas key) {
+        manager.getDaoSession().getKeyasDao().update(key);
+    }
+
+    public void updateDevice(Device device) {
+        manager.getDaoSession().getDeviceDao().update(device);
+    }
+
+    public void removeDevice(Device device) {
+        DaoSession daoSession = manager.getDaoSession();
+        daoSession.getDeviceDao().delete(device);
+        daoSession.getKeyasDao().delete(device.getDevice_id());
+
     }
 
 }

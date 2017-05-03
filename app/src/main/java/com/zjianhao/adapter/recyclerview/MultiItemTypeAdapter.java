@@ -104,13 +104,8 @@ public class MultiItemTypeAdapter<T> extends RecyclerView.Adapter<ViewHolder> {
     }
 
     public void setDatas(List<T> datas) {
-        if (mDatas == null)
-            mDatas = datas;
-        else {
-            mDatas.clear();
-            mDatas.addAll(datas);
-        }
-        notifyDataSetChanged();
+        this.mDatas = datas;
+        notifyItemRangeChanged(0, datas.size());
     }
 
 
@@ -130,6 +125,13 @@ public class MultiItemTypeAdapter<T> extends RecyclerView.Adapter<ViewHolder> {
 
     protected boolean useItemViewDelegateManager() {
         return mItemViewDelegateManager.getItemViewDelegateCount() > 0;
+    }
+
+    public void delete(int position) {
+        mDatas.remove(position);
+        notifyItemRemoved(position);
+        if (position != mDatas.size())
+            notifyItemRangeChanged(position, mDatas.size() - position);
     }
 
     public interface OnItemClickListener {

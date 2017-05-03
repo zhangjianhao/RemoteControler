@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.percent.PercentRelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/aa"
+        android:layout_marginBottom="10dp"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:id="@+id/num_dd"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:weightSum="1.2"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp">
+
+            <Button
+                android:id="@+id/num_0"
+                android:layout_width="@dimen/num_button_size"
+                android:layout_height="@dimen/num_button_size"
+                android:background="@drawable/number_circle_button"
+                android:text="0"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/num_aa"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:weightSum="1.2"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_below="@id/num_dd">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.4"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/num_1"
+                    android:layout_width="@dimen/num_button_size"
+                    android:layout_height="@dimen/num_button_size"
+                    android:background="@drawable/number_circle_button"
+                    android:text="1"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.4"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/num_2"
+                    android:layout_width="@dimen/num_button_size"
+                    android:layout_height="@dimen/num_button_size"
+                    android:background="@drawable/number_circle_button"
+                    android:text="2"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.4"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/num_3"
+                    android:layout_width="@dimen/num_button_size"
+                    android:layout_height="@dimen/num_button_size"
+                    android:background="@drawable/number_circle_button"
+                    android:text="3"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/num_bb"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:weightSum="1.2"
+            android:layout_below="@id/num_aa"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.4"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/num_4"
+                    android:layout_width="@dimen/num_button_size"
+                    android:layout_height="@dimen/num_button_size"
+                    android:background="@drawable/number_circle_button"
+                    android:text="4"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.4"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/num_5"
+                    android:layout_width="@dimen/num_button_size"
+                    android:layout_height="@dimen/num_button_size"
+                    android:background="@drawable/number_circle_button"
+                    android:text="5"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.4"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/num_6"
+                    android:layout_width="@dimen/num_button_size"
+                    android:layout_height="@dimen/num_button_size"
+                    android:background="@drawable/number_circle_button"
+                    android:text="6"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/num_cc"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:weightSum="1.2"
+            android:layout_below="@id/num_bb"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.4"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/num_7"
+                    android:layout_width="@dimen/num_button_size"
+                    android:layout_height="@dimen/num_button_size"
+                    android:background="@drawable/number_circle_button"
+                    android:text="7"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.4"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/num_8"
+                    android:layout_width="@dimen/num_button_size"
+                    android:layout_height="@dimen/num_button_size"
+                    android:background="@drawable/number_circle_button"
+                    android:text="8"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.4"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/num_9"
+                    android:layout_width="@dimen/num_button_size"
+                    android:layout_height="@dimen/num_button_size"
+                    android:background="@drawable/number_circle_button"
+                    android:text="9"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </android.support.percent.PercentRelativeLayout>
+
+</android.support.percent.PercentRelativeLayout>

@@ -55,7 +55,6 @@ public class BrandListActivity extends NavigatorActivity implements OnSelectInde
         setContentView(R.layout.ele_brand_list_main);
         ButterKnife.inject(this);
         typeId = getIntent().getIntExtra("type_id", 1);
-        System.out.println("typeId:" + typeId);
         brandList.setLayoutManager(new LinearLayoutManager(this));
         adapter = new BrandAdapter(this, R.layout.ele_brand_item, brands);
         adapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
@@ -82,19 +81,17 @@ public class BrandListActivity extends NavigatorActivity implements OnSelectInde
 
     public void loadBrandData() {
         DeviceApi deviceApi = RetrofitManager.getDeviceApi();
-        Call<ResponseHeader<List<Brand>>> brands = deviceApi.getBrands(typeId);
-        brands.enqueue(new DefaultCallback<List<Brand>>(brandList) {
+        final Call<ResponseHeader<List<Brand>>> brandLists = deviceApi.getBrands(typeId);
+        brandLists.enqueue(new DefaultCallback<List<Brand>>(brandList) {
             @Override
             public void onResponse(List<Brand> data) {
+                brands = data;
                 Collections.sort(data);
                 adapter.setDatas(data);
             }
         });
     }
 
-    public void sortBrand(List<Brand> brands) {
-        Collections.sort(brands);
-    }
 
     @Override
     public void onSelectIndexItem(String index) {

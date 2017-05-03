@@ -18,6 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:text="当前状态:"
+            android:visibility="gone"
             android:textColor="@color/white"
             android:textSize="10sp" />
 
@@ -28,6 +29,7 @@
             android:layout_marginLeft="6dp"
             android:layout_toRightOf="@id/aa"
             android:text="工作中"
+            android:visibility="gone"
             android:textColor="@color/white"
             android:textSize="10sp" />
 

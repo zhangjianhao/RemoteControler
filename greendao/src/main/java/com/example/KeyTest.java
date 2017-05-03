@@ -1,10 +1,4 @@
-package com.zjianhao.module.electrical.model;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.zjianhao.entity.Keyas;
-
-import java.util.List;
+package com.example;
 
 /**
  * Created by 张建浩（Clarence) on 2017-4-18 22:17.
@@ -14,20 +8,15 @@ import java.util.List;
 
 public class KeyTest implements Comparable<KeyTest> {
 
-    @JsonIgnore
     private int typeId;
-    @JsonIgnore
     private int brandId;
 
-    @JsonProperty("id")
     private int deviceId;
 
 
     private String name;
     private int orderno;
 
-    @JsonProperty("list")
-    private List<Keyas> keys;
 
     public int getDeviceId() {
         return deviceId;
@@ -69,13 +58,6 @@ public class KeyTest implements Comparable<KeyTest> {
         this.orderno = orderno;
     }
 
-    public List<Keyas> getKeys() {
-        return keys;
-    }
-
-    public void setKeys(List<Keyas> keys) {
-        this.keys = keys;
-    }
 
     @Override
     public int compareTo(KeyTest o) {

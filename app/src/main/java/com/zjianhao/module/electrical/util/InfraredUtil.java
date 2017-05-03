@@ -37,6 +37,9 @@ public class InfraredUtil {
     }
 
     public void send(String data) {
+        System.out.println("send:" + data);
+        if (data == null)
+            return;
         if (manager == null)
             manager = (ConsumerIrManager) context.getSystemService(CONSUMER_IR_SERVICE);
         String frequency = data.substring(0, data.indexOf(','));
@@ -46,8 +49,13 @@ public class InfraredUtil {
         int[] pattern = new int[str.length];
         for (int i = 0; i < str.length; i++)
             pattern[i] = Integer.parseInt(str[i]);
+        System.out.println(Integer.parseInt(frequency) + "," + pattern);
 
-        manager.transmit(Integer.parseInt(frequency), pattern);
+        if (isSupportInfrared()) {
+            manager.transmit(Integer.parseInt(frequency), pattern);
+            System.out.println("send success");
+        } else
+            System.out.println("not support");
     }
 
 

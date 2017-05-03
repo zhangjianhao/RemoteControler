@@ -4,18 +4,39 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="90dp"
+    android:layout_height="70dp"
     android:background="@color/white">
 
-    <at.markushi.ui.CircleButton
-        android:id="@+id/control_device_img"
+    <FrameLayout
+        android:id="@+id/controller_device_circle"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:padding="32dp"
-        app:cb_color="@color/colorAccent"
         android:layout_centerVertical="true"
         android:layout_marginLeft="20dp"
-        app:cb_pressedRingWidth="0dip" />
+
+        >
+
+        <at.markushi.ui.CircleButton
+            android:id="@+id/control_device_img"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            app:cb_color="@color/colorAccent"
+            android:layout_gravity="center"
+            app:cb_pressedRingWidth="0dip" />
+
+        <com.zjianhao.view.IconFont
+            android:id="@+id/device_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:text="&#xe66b;"
+            android:layout_marginTop="2dp"
+            android:layout_gravity="center" />
+
+
+    </FrameLayout>
+
 
     <TextView
         android:id="@+id/controll_device_name"
@@ -24,7 +45,8 @@
         tools:text="小米电视"
         android:textSize="14sp"
         android:layout_centerVertical="true"
-        android:layout_toRightOf="@id/control_device_img"
+        android:textColor="@color/black"
+        android:layout_toRightOf="@id/controller_device_circle"
         android:layout_marginLeft="30dp" />
 
 

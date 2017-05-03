@@ -14,7 +14,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.zjianhao.adapter.recyclerview.CommonAdapter;
-import com.zjianhao.adapter.recyclerview.MultiItemTypeAdapter;
 import com.zjianhao.adapter.recyclerview.base.ViewHolder;
 import com.zjianhao.adapter.recyclerview.wrapper.SpaceItemDecoration;
 import com.zjianhao.base.NavigatorActivity;
@@ -30,6 +29,7 @@ import com.zjianhao.module.pc.util.CmdUtil;
 import com.zjianhao.universalcontroller.R;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import butterknife.ButterKnife;
@@ -44,7 +44,7 @@ import retrofit2.Call;
  * contact: zhangjianhao1111@gmail.com
  */
 
-public class AddControllerActivity extends NavigatorActivity implements MultiItemTypeAdapter.OnItemClickListener {
+public class AddControllerActivity extends NavigatorActivity {
     @InjectView(R.id.key_test_list)
     RecyclerView keyTestList;
     @InjectView(R.id.key_effect_container)
@@ -87,12 +87,14 @@ public class AddControllerActivity extends NavigatorActivity implements MultiIte
                     public void onClick(View v) {
                         KeyTest keyTest = keyTests.get(position);
                         keyEffectContainer.setVisibility(View.VISIBLE);
+                        Keyas key = keyTest.getKeys().get(0);
+                        System.out.println("order no:" + keyTest.getOrderno());
+                        infraredUtil.send(key.getData());
                         System.out.println(keyTest.getName() + ":" + keyTest.getKeys().get(0).getData());
                     }
                 });
             }
         };
-        adapter.setOnItemClickListener(this);
         keyTestList.setAdapter(adapter);
         int spacingInPixels = getResources().getDimensionPixelSize(R.dimen.recycle_view_item_spacing);
         keyTestList.addItemDecoration(new SpaceItemDecoration(0, 0, spacingInPixels, spacingInPixels));
@@ -128,6 +130,7 @@ public class AddControllerActivity extends NavigatorActivity implements MultiIte
         keyTests.enqueue(new DefaultCallback<List<KeyTest>>(keyTestList) {
             @Override
             public void onResponse(List<KeyTest> data) {
+                Collections.sort(data);
                 keyLoadProgress.setVisibility(View.GONE);
                 adapter.setDatas(data);
                 AddControllerActivity.this.keyTests = data;
@@ -138,18 +141,7 @@ public class AddControllerActivity extends NavigatorActivity implements MultiIte
         });
     }
 
-    @Override
-    public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
-        KeyTest keyTest = keyTests.get(position);
-        keyEffectContainer.setVisibility(View.VISIBLE);
-        Keyas key = keyTest.getKeys().get(0);
-        infraredUtil.send(key.getData());
-    }
 
-    @Override
-    public boolean onItemLongClick(View view, RecyclerView.ViewHolder holder, int position) {
-        return false;
-    }
 
     @OnClick({R.id.key_effect_no, R.id.key_effect_yes})
     public void onClick(View view) {
