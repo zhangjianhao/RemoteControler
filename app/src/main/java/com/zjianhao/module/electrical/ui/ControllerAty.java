@@ -12,6 +12,7 @@ import com.zjianhao.http.DefaultCallback;
 import com.zjianhao.http.ResponseHeader;
 import com.zjianhao.http.RetrofitManager;
 import com.zjianhao.module.electrical.util.InfraredUtil;
+import com.zjianhao.utils.VibratorUtil;
 
 import java.util.HashMap;
 import java.util.List;
@@ -59,6 +60,7 @@ public class ControllerAty extends NavigatorActivity {
     }
 
     protected void send(View view, String cmd) {
+        VibratorUtil.Vibrate(this, 60);
         if (!cmdKeys.containsKey(cmd)) {
             Toast.makeText(this, "没有该按键数据", Toast.LENGTH_SHORT).show();
             return;

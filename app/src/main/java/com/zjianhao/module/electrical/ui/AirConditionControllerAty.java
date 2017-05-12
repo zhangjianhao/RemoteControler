@@ -15,6 +15,7 @@ import com.zjianhao.http.RetrofitManager;
 import com.zjianhao.module.electrical.model.AirCondition;
 import com.zjianhao.module.electrical.util.InfraredUtil;
 import com.zjianhao.universalcontroller.R;
+import com.zjianhao.utils.VibratorUtil;
 import com.zjianhao.view.IconFont;
 
 import at.markushi.ui.CircleButton;
@@ -109,6 +110,7 @@ public class AirConditionControllerAty extends NavigatorActivity {
     }
 
     private void sendCmd(String cmd, int temp) {
+        VibratorUtil.Vibrate(this, 60);
         AirCmd airCmd = daoUtil.getAirCmd(deviceId, cmd, temp + "");
         //没有数据从网络加载
         if (airCmd == null || airCmd.getData() == null)

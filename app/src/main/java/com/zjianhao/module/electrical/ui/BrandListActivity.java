@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.zjianhao.adapter.recyclerview.MultiItemTypeAdapter;
@@ -40,6 +41,8 @@ public class BrandListActivity extends NavigatorActivity implements OnSelectInde
     RecyclerView brandList;
     @InjectView(R.id.right_side_bar)
     WaveSideBar rightSideBar;
+    @InjectView(R.id.load_brand_progress)
+    ProgressBar loadBrandProgress;
 
     private BrandAdapter adapter;
     private int typeId;
@@ -85,9 +88,16 @@ public class BrandListActivity extends NavigatorActivity implements OnSelectInde
         brandLists.enqueue(new DefaultCallback<List<Brand>>(brandList) {
             @Override
             public void onResponse(List<Brand> data) {
+                loadBrandProgress.setVisibility(View.GONE);
                 brands = data;
                 Collections.sort(data);
                 adapter.setDatas(data);
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+                super.onFailure(t);
+                loadBrandProgress.setVisibility(View.GONE);
             }
         });
     }

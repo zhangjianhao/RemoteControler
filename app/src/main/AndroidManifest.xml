@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
     <uses-permission android:name="android.permission.TRANSMIT_IR" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
 
     <application
@@ -44,7 +45,6 @@
         <activity android:name="com.zjianhao.module.electrical.ui.DeviceControllerAty" />
         <activity android:name="com.zjianhao.module.electrical.ui.ConfirmDeviceAty" />
         <activity android:name="com.zjianhao.module.electrical.ui.CameraControllerAty" />
-        <activity android:name="com.zjianhao.module.electrical.ui.TVControllerAty" />
         <activity android:name="com.zjianhao.module.electrical.ui.TVBoxControllerAty" />
         <activity android:name="com.zjianhao.module.electrical.ui.SmartBoxControllerAty" />
         <activity android:name="com.zjianhao.module.electrical.ui.ProjectorControllerAty" />

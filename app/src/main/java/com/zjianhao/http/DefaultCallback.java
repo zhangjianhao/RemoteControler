@@ -56,5 +56,5 @@ public abstract class DefaultCallback<T> implements Callback<ResponseHeader<T>> 
     public void onFailure(Throwable t) {
     }
 
-    ;
+
 }

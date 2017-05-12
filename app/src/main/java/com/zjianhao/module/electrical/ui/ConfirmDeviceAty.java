@@ -54,7 +54,6 @@ public class ConfirmDeviceAty extends NavigatorActivity {
         typeId = getIntent().getIntExtra("type_id", 1);
         deviceId = getIntent().getIntExtra("device_id", 0);
         deviceName.setText(brandName + CmdUtil.getTypeName(typeId));
-
     }
 
     @OnClick(R.id.device_add_confirm)
