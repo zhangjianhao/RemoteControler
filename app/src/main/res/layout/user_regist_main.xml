@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/toolbar_layout" />
+
+
+    <EditText
+        android:id="@+id/username_et"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="20dp"
+        android:hint="@string/please_input_username" />
+
+    <EditText
+        android:id="@+id/email_et"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:hint="@string/please_input_email" />
+
+    <EditText
+        android:id="@+id/password_et"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:hint="@string/please_input_password"
+        android:password="true" />
+
+    <EditText
+        android:id="@+id/confirm_password_et"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:hint="@string/confirm_password"
+        android:password="true"
+        android:layout_marginLeft="20dp" />
+
+    <Button
+        android:id="@+id/summit_userinfo_btn"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:background="@drawable/button_rect"
+        android:layout_marginTop="10dp"
+        android:text="@string/regist"
+        android:textColor="@color/white" />
+
+
+</LinearLayout>

@@ -14,7 +14,7 @@ import com.zjianhao.universalcontroller.R;
 import static com.zjianhao.utils.UdpSender.sendOrderSyn;
 
 /**
- * Created by 张建浩 on 2016/3/8.
+ * Created by 张建浩 on 2017/3/8
  */
 public class ControlPPTAty extends NavigatorActivity implements View.OnClickListener{
     private static String TAG = ControlPPTAty.class.getName();

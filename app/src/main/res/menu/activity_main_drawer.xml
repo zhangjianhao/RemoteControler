@@ -10,10 +10,7 @@
             android:id="@+id/nav_eletrctrical"
             android:icon="@drawable/ic_menu_gallery"
             android:title="我的家电" />
-        <item
-            android:id="@+id/nav_smart_device"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="智能设备" />
+
 
     </group>
 

@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
     <uses-permission android:name="android.permission.TRANSMIT_IR" />
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
 
 
     <application
@@ -42,7 +43,6 @@
         <activity android:name="com.zjianhao.module.electrical.ui.BrandListActivity" />
         <activity android:name="com.zjianhao.module.electrical.ui.AddControllerActivity" />
         <activity android:name="com.zjianhao.module.electrical.ui.AirConditionControllerAty" />
-        <activity android:name="com.zjianhao.module.electrical.ui.DeviceControllerAty" />
         <activity android:name="com.zjianhao.module.electrical.ui.ConfirmDeviceAty" />
         <activity android:name="com.zjianhao.module.electrical.ui.CameraControllerAty" />
         <activity android:name="com.zjianhao.module.electrical.ui.TVBoxControllerAty" />
@@ -51,6 +51,13 @@
         <activity android:name="com.zjianhao.module.electrical.ui.FanControllerAty" />
         <activity android:name="com.zjianhao.module.electrical.ui.DVDControllerAty" />
         <activity android:name="com.zjianhao.ui.WebContentAty" />
+
+        <activity android:name="com.zjianhao.ui.FingerprintLogin" />
+        <activity android:name="com.zjianhao.ui.FingerprintBindAty" />
+        <activity android:name="com.zjianhao.ui.FingerprintBind2Aty" />
+        <activity android:name="com.zjianhao.ui.SettingAty" />
+        <activity android:name="com.zjianhao.ui.UserLoginAty" />
+        <activity android:name="com.zjianhao.ui.RegistAty" />
 
 
     </application>

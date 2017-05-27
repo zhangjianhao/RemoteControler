@@ -10,7 +10,7 @@ import com.zjianhao.base.NavigatorActivity;
 import com.zjianhao.universalcontroller.R;
 
 /**
- * Created by 张建浩 on 2016/3/10.
+ * Created by 张建浩 on 2017/3/10.
  */
 public class PPTOpenremindAty extends NavigatorActivity {
     private Button startControlPPT;

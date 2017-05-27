@@ -37,8 +37,11 @@ public abstract class DefaultCallback<T> implements Callback<ResponseHeader<T>> 
         if (body == null) {
             SnackBar.show(view.get(), "网络访问异常");
             onFailure(null);
-        } else if (body.getCode() != 200) {
+        } else if (body.getCode() != 200 && body.getCode() > 0) {
             SnackBar.show(view.get(), "服务器异常" + body.getCode() + ":" + body.getErrorMsg());
+        } else if (body.getCode() <= 0) {
+            SnackBar.show(view.get(), body.getErrorMsg());
+
         } else {
             //访问成功
             onResponse(body.getResult());
@@ -54,6 +57,7 @@ public abstract class DefaultCallback<T> implements Callback<ResponseHeader<T>> 
     public abstract void onResponse(T data);
 
     public void onFailure(Throwable t) {
+
     }
 
 

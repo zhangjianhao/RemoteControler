@@ -35,7 +35,6 @@ import java.util.concurrent.atomic.AtomicBoolean;
  */
 public class ScreenRecorder extends Thread {
     private static final String TAG = "ScreenRecorder";
-
     private int mWidth;
     private int mHeight;
     private int mBitRate;

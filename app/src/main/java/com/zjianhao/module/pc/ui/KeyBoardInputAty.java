@@ -22,7 +22,7 @@ import com.zjianhao.view.OnSizeChangedListener;
 import static com.zjianhao.utils.UdpSender.sendOrderSyn;
 
 /**
- * Created by 张建浩 on 2016/3/7.
+ * Created by 张建浩 on 2017/3/7.
  */
 public class KeyBoardInputAty extends Activity implements View.OnClickListener{
     private static String TAG = KeyBoardInputAty.class.getName();

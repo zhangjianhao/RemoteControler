@@ -16,17 +16,28 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zjianhao.base.BaseActivity;
-import com.zjianhao.module.device.SmartDeviceFragment;
+import com.zjianhao.http.DefaultCallback;
+import com.zjianhao.http.ResponseHeader;
+import com.zjianhao.http.RetrofitManager;
+import com.zjianhao.model.User;
 import com.zjianhao.module.electrical.ui.ElectricalFragment;
 import com.zjianhao.module.pc.PCFragment;
+import com.zjianhao.ui.SettingAty;
+import com.zjianhao.ui.UserLoginAty;
 import com.zjianhao.ui.WebContentAty;
+import com.zjianhao.utils.SharePreferenceUtils;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import butterknife.ButterKnife;
+import retrofit2.Call;
 
 public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -39,6 +50,9 @@ public class MainActivity extends BaseActivity
     public static final int SMART_DEVICE_FRAGMENT = 3;
     private int whichFragment = PC_FRAGMENT;
     private Toolbar toolbar;
+    private TextView headTextView;
+    private DrawerLayout drawer;
+    private ImageView headImg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,8 +70,7 @@ public class MainActivity extends BaseActivity
         setSupportActionBar(toolbar);
 
 
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
@@ -65,7 +78,69 @@ public class MainActivity extends BaseActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        View headerView = navigationView.getHeaderView(0);
+        headImg = (ImageView) headerView.findViewById(R.id.head_img);
+        headTextView = (TextView) headerView.findViewById(R.id.head_username);
+        headTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                User user = ((AppApplication) MainActivity.this.getApplication()).getUser();
+                if (user == null) {
+                    drawer.closeDrawer(GravityCompat.START);
+                    Intent intent = new Intent(MainActivity.this, UserLoginAty.class);
+                    startActivity(intent);
+                }
+            }
+        });
+        headerView.findViewById(R.id.log_out).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((AppApplication) getApplication()).setUser(null);
+                headTextView.setText("请先登陆");
+//                SharePreferenceUtils.save(MainActivity.this,"user","user_id",null);
+//                SharePreferenceUtils.save(MainActivity.this,"user","token",null);
+                Toast.makeText(MainActivity.this, "成功退出登陆", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
         changeFragment(ELECTRICAL_FRAGMENT);
+        login();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        User user = ((AppApplication) getApplication()).getUser();
+        if (user != null) {
+            headTextView.setText(user.getUsername());
+            ImageLoader.getInstance().displayImage(user.getHeadImg(), headImg);
+        }
+    }
+
+    public void login() {
+        User user = ((AppApplication) getApplication()).getUser();
+        if (user == null) {
+            String userId = SharePreferenceUtils.getStringValue(this, "user", "user_id");
+            String token = SharePreferenceUtils.getStringValue(this, "user", "token");
+            System.out.println(userId + ":" + token);
+            if (userId != null && token != null) {
+                Call<ResponseHeader<User>> call = RetrofitManager.getUserApi().tokenVerify(userId, token);
+                call.enqueue(new DefaultCallback<User>(toolbar) {
+                    @Override
+                    public void onResponse(User data) {
+                        ((AppApplication) getApplication()).setUser(data);
+                        headTextView.setText(data.getUsername());
+                        ImageLoader.getInstance().displayImage(data.getHeadImg(), headImg);
+                    }
+
+                });
+            }
+
+
+        }
+
     }
 
 
@@ -92,11 +167,7 @@ public class MainActivity extends BaseActivity
                 toolbar.setTitle("我的家电");
                 break;
             case SMART_DEVICE_FRAGMENT:
-                if (targetFragment == null){
-                    targetFragment = new SmartDeviceFragment();
-                    fragmentMap.put(which,targetFragment);
-                }
-                toolbar.setTitle("智能设备");
+
                 break;
         }
         if (!targetFragment.isAdded()){
@@ -170,20 +241,22 @@ public class MainActivity extends BaseActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
         int id = item.getItemId();
+
+        if (id == R.id.head_username) {
+            Toast.makeText(this, "click", Toast.LENGTH_SHORT).show();
+        }
 
         if (id == R.id.nav_pc) {
             // Handle the camera action
             changeFragment(PC_FRAGMENT);
         } else if (id == R.id.nav_eletrctrical) {
             changeFragment(ELECTRICAL_FRAGMENT);
-        } else if (id == R.id.nav_smart_device) {
-            changeFragment(SMART_DEVICE_FRAGMENT);
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_setting) {
-
+            Intent intent = new Intent(this, SettingAty.class);
+            startActivity(intent);
         } else if (id == R.id.about_author) {
             Intent intent = new Intent(this, WebContentAty.class);
             intent.putExtra("url", Constant.AUTHRO_URL);
@@ -195,7 +268,6 @@ public class MainActivity extends BaseActivity
         }
         invalidateOptionsMenu();
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

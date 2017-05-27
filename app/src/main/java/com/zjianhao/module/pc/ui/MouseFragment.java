@@ -18,7 +18,7 @@ import com.zjianhao.universalcontroller.R;
 import com.zjianhao.utils.UdpSender;
 
 /**
- * Created by 张建浩 on 2016/3/8.
+ * Created by 张建浩 on 2017/3/8.
  */
 public class MouseFragment extends Fragment implements View.OnClickListener {
     private RelativeLayout trackpad;

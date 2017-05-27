@@ -225,7 +225,18 @@ public class ElectricalFragment extends BaseFragment {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
+            case R.id.device_backup:
+
+
+                break;
+            case R.id.device_restore:
+
+                break;
+        }
         return super.onOptionsItemSelected(item);
+
     }
 
     @Override

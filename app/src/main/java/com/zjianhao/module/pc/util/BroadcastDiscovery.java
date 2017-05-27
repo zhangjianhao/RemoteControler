@@ -7,6 +7,7 @@ import android.net.wifi.WifiManager;
 import com.zjianhao.universalcontroller.Constant;
 
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
@@ -83,7 +84,6 @@ public class BroadcastDiscovery extends Thread {
                 socket.receive(in);
                 InetAddress address = in.getAddress();
                 String result = new String(in.getData(), 0, in.getLength());
-                System.out.println("receive:" + result + ":" + address);
                 if (result.contains("#")) {
                     String[] split = result.split("#");
                     if ((RESPONSE_CODE + "").equals(split[0]) && listener != null)
@@ -96,6 +96,9 @@ public class BroadcastDiscovery extends Thread {
 
     public static InetAddress getBroadcastAddress(Context context) throws UnknownHostException {
         WifiManager wifi = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
+        int state = getWifiApState(wifi);
+        if (state == 13)
+            return InetAddress.getByName("192.168.43.1");
         DhcpInfo dhcp = wifi.getDhcpInfo();
         if (dhcp == null) {
             return InetAddress.getByName("255.255.255.255");
@@ -105,5 +108,17 @@ public class BroadcastDiscovery extends Thread {
         for (int k = 0; k < 4; k++)
             quads[k] = (byte) ((broadcast >> k * 8) & 0xFF);
         return InetAddress.getByAddress(quads);
+    }
+
+    private static int getWifiApState(WifiManager wifiManager) {
+        try {
+            Method method = wifiManager.getClass().getMethod("getWifiApState");
+            return ((Integer) method.invoke(wifiManager));
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            return 11;
+        }
+
     }
 }

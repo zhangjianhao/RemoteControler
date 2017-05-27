@@ -26,7 +26,6 @@ public class RemoteShutdownAty extends NavigatorActivity {
             @Override
             public void onClick(View v) {
                 shutdown.setBackgroundResource(R.drawable.shutdown_btn_style_press);
-
                 UdpSender.sendOrderSyn(ip, PCCommand.SHUTDOWN_COMMAND);
             }
         });

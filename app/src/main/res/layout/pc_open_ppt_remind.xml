@@ -52,10 +52,9 @@
             android:background="@drawable/button_oval_style"
             android:text="我已打开PPT"
             android:textSize="10sp"
-            android:textColor="#000000"
+            android:textColor="@color/black"
             android:paddingTop="2dp"
             android:paddingBottom="2dp"
-
             />
     </LinearLayout>
 </LinearLayout>

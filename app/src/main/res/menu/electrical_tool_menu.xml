@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/device_backup"
+        android:orderInCategory="100"
+        android:title="设备备份"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/device_restore"
+        android:orderInCategory="100"
+        android:title="备份还原"
+        app:showAsAction="never" />
 
 
 </menu>

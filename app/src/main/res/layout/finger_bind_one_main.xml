@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/toolbar_layout" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.9"
+        android:background="@color/colorAccent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="bottom"
+                android:text="1.验证用户身份"
+                android:textColor="@color/white"
+                android:layout_gravity="bottom"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="30dp"
+                android:textSize="25sp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.3"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="请确认您的用户名和密码"
+                android:gravity="center_horizontal"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/bind_username"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:hint="请确认用户名"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/bind_password"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:textSize="16sp"
+                android:hint="请确认密码"
+                android:inputType="textPassword" />
+
+
+            <Button
+                android:id="@+id/next_step"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/button_rect"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="下一步"
+                android:textColor="@color/white"
+                android:layout_marginTop="30dp" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>
