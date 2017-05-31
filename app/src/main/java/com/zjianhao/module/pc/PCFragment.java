@@ -113,6 +113,8 @@ public class PCFragment extends BaseFragment implements PCHostAdapter.HostClickL
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == SearchHostAty.REQUEST_SEARCH_HOST) {
             ArrayList<Host> hosts = data.getParcelableArrayListExtra("hosts");
+            if (hosts.size() > 0)
+                ((AppApplication) getActivity().getApplication()).setIp(hosts.get(0).getHostIp());
             this.hosts = hosts;
             showSnackbar(recycleView, "发现" + hosts.size() + "台主机");
             adapter.setData(hosts);

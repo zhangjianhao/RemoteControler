@@ -98,6 +98,7 @@ public class ConfirmDeviceAty extends NavigatorActivity {
         device.setBrand_id(brandId);
         device.setDevice_id(deviceId);
         device.setDevice_name(deviceName.getText().toString());
+        device.setBackup_time(System.currentTimeMillis());
         util.insertDevice(device);
     }
 

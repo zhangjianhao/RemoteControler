@@ -18,8 +18,7 @@
             android:background="@null"
             android:drawableLeft="@drawable/ic_user"
             android:drawablePadding="20.0dip"
-            android:hint="用户名"
-            android:inputType="textCapCharacters" />
+            android:hint="用户名" />
 
 
         <EditText

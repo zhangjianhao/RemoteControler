@@ -1,5 +1,6 @@
 package com.zjianhao.http;
 
+import android.util.Log;
 import android.view.View;
 
 import com.zjianhao.utils.SnackBar;
@@ -25,8 +26,10 @@ import retrofit2.Response;
  */
 public abstract class DefaultCallback<T> implements Callback<ResponseHeader<T>> {
     private WeakReference<View> view;
+    public static final String TAG = DefaultCallback.class.getName();
 
     public DefaultCallback(View view) {
+        if (view != null)
         this.view = new WeakReference<View>(view);
     }
 
@@ -35,12 +38,12 @@ public abstract class DefaultCallback<T> implements Callback<ResponseHeader<T>> 
 
         ResponseHeader<T> body = response.body();
         if (body == null) {
-            SnackBar.show(view.get(), "网络访问异常");
+            showSnackbar("网络访问异常");
             onFailure(null);
         } else if (body.getCode() != 200 && body.getCode() > 0) {
-            SnackBar.show(view.get(), "服务器异常" + body.getCode() + ":" + body.getErrorMsg());
+            showSnackbar("服务器异常" + body.getCode() + ":" + body.getErrorMsg());
         } else if (body.getCode() <= 0) {
-            SnackBar.show(view.get(), body.getErrorMsg());
+            showSnackbar(body.getErrorMsg());
 
         } else {
             //访问成功
@@ -50,8 +53,16 @@ public abstract class DefaultCallback<T> implements Callback<ResponseHeader<T>> 
 
     @Override
     public void onFailure(Call<ResponseHeader<T>> call, Throwable t) {
-        SnackBar.show(view.get(), "网络访问异常,请检查网络连接");
+        t.printStackTrace();
+        showSnackbar("网络访问异常,请检查网络连接");
         this.onFailure(t);
+    }
+
+    private void showSnackbar(String msg) {
+        if (view != null)
+            SnackBar.show(view.get(), msg);
+        else
+            Log.e(TAG, msg);
     }
 
     public abstract void onResponse(T data);

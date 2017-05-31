@@ -26,7 +26,14 @@ import com.zjianhao.adapter.recyclerview.wrapper.SpaceItemDecoration;
 import com.zjianhao.base.BaseFragment;
 import com.zjianhao.dao.DaoUtil;
 import com.zjianhao.entity.Device;
+import com.zjianhao.http.DefaultCallback;
+import com.zjianhao.http.ResponseHeader;
+import com.zjianhao.http.RetrofitManager;
+import com.zjianhao.model.User;
 import com.zjianhao.module.electrical.DevicePopupWindow;
+import com.zjianhao.service.BackupService;
+import com.zjianhao.ui.UserLoginAty;
+import com.zjianhao.universalcontroller.AppApplication;
 import com.zjianhao.universalcontroller.R;
 import com.zjianhao.view.IconFont;
 
@@ -37,6 +44,7 @@ import at.markushi.ui.CircleButton;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
+import retrofit2.Call;
 
 /**
  * Created by 张建浩（Clarence) on 2017-4-10 17:00.
@@ -225,18 +233,46 @@ public class ElectricalFragment extends BaseFragment {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        User user = ((AppApplication) getActivity().getApplication()).getUser();
+        if (user == null) {
+            Toast.makeText(getActivity(), "请先登陆", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(getActivity(), UserLoginAty.class);
+            startActivity(intent);
+            getActivity().finish();
+        }
         int id = item.getItemId();
         switch (id) {
             case R.id.device_backup:
-
+                System.out.println("click backup menu");
+                Intent intent = new Intent(getActivity(), BackupService.class);
+                intent.putExtra("user_id", user.getUserId());
+                intent.putExtra("token", user.getToken());
+                intent.setAction(BackupService.ACTION_BACKUP_DEVICE);
+                getActivity().startService(intent);
 
                 break;
             case R.id.device_restore:
-
+                restore(user.getUserId(), user.getToken());
                 break;
         }
         return super.onOptionsItemSelected(item);
 
+    }
+
+    public void restore(String userId, String token) {
+        Call<ResponseHeader<List<Device>>> call = RetrofitManager.getUserApi().restoreData(userId, token);
+        call.enqueue(new DefaultCallback<List<Device>>(null) {
+            @Override
+            public void onResponse(List<Device> data) {
+                for (Device device : data) {
+                    if (!daoUtil.isExist(device))
+                        daoUtil.insertDevice(device);
+                }
+                devices = daoUtil.getDeviceList();
+                adapter.setDatas(devices);
+                Toast.makeText(getActivity(), "数据还原完成", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override

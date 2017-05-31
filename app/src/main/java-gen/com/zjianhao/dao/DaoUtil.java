@@ -58,7 +58,6 @@ public class DaoUtil {
             List<AirCmd> airCmd = airCmdDao.getAirCmd(deviceId, cmd);
             if (airCmd.size() > 0)
                 return airCmd.get(0);
-            System.out.println(cmd + ": query no");
             return null;
 
         } else
@@ -81,7 +80,15 @@ public class DaoUtil {
         DaoSession daoSession = manager.getDaoSession();
         daoSession.getDeviceDao().delete(device);
         daoSession.getKeyasDao().delete(device.getDevice_id());
+    }
 
+
+    public List<Device> getLastestDevice(long timestamp) {
+        return manager.getDaoSession().getDeviceDao().queryDevice(timestamp);
+    }
+
+    public boolean isExist(Device device) {
+        return manager.getDaoSession().getDeviceDao().isExist(device);
     }
 
 }

@@ -1,20 +1,21 @@
 package com.example;
 
+import de.greenrobot.daogenerator.DaoGenerator;
 import de.greenrobot.daogenerator.Entity;
 import de.greenrobot.daogenerator.Schema;
 
 public class GenerateDao {
     public static void main(String[] args) {
-//        Schema schema = new Schema(1,"com.zjianhao.entity");
-//        schema.setDefaultJavaPackageDao("com.zjianhao.dao");
-//        addDevice(schema);
-//        addKey(schema);
-//        addAirCmd(schema);
-//        try {
-//            new DaoGenerator().generateAll(schema, "/home/zjianhao/workspace/AndroidStudioWorkSpace/UniversalController/app/src/main/java-gen");
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+        Schema schema = new Schema(1, "com.zjianhao.entity");
+        schema.setDefaultJavaPackageDao("com.zjianhao.dao");
+        addDevice(schema);
+        addKey(schema);
+        addAirCmd(schema);
+        try {
+            new DaoGenerator().generateAll(schema, "/home/zjianhao/workspace/AndroidStudioWorkSpace/UniversalController/app/src/main/java-gen");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
     }
@@ -26,6 +27,7 @@ public class GenerateDao {
         device.addIntProperty("brand_id");
         device.addIntProperty("device_id");
         device.addStringProperty("device_name");
+        device.addLongProperty("backup_time");
     }
 
     public static void addKey(Schema schema) {

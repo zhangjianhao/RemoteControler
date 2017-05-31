@@ -115,6 +115,7 @@ public class SearchHostAty extends BaseActivity implements BroadcastDiscovery.Di
     @Override
     public void onDiscovery(String ip, String hostname, String sysType) {
         final Host host = new Host(hostname, ip, sysType);
+
         runOnUiThread(new Runnable() {
             @Override
             public void run() {

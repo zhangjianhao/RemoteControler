@@ -1,7 +1,10 @@
 package com.zjianhao.universalcontroller;
 
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -28,6 +31,7 @@ import com.zjianhao.http.RetrofitManager;
 import com.zjianhao.model.User;
 import com.zjianhao.module.electrical.ui.ElectricalFragment;
 import com.zjianhao.module.pc.PCFragment;
+import com.zjianhao.service.WakaUpService;
 import com.zjianhao.ui.SettingAty;
 import com.zjianhao.ui.UserLoginAty;
 import com.zjianhao.ui.WebContentAty;
@@ -38,6 +42,8 @@ import java.util.Map;
 
 import butterknife.ButterKnife;
 import retrofit2.Call;
+
+import static com.zjianhao.service.Action.ACTION_START_BAIDU_AUDIO;
 
 public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -53,6 +59,7 @@ public class MainActivity extends BaseActivity
     private TextView headTextView;
     private DrawerLayout drawer;
     private ImageView headImg;
+    private WakeOrderBroadcastReceiver wakeOrderBroadcastReceiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,6 +114,12 @@ public class MainActivity extends BaseActivity
 
         changeFragment(ELECTRICAL_FRAGMENT);
         login();
+        changeWakeupServiceState(true);
+        wakeOrderBroadcastReceiver = new WakeOrderBroadcastReceiver();
+
+        System.out.println("注册了广播");
+        IntentFilter filter = new IntentFilter(ACTION_START_BAIDU_AUDIO);
+        registerReceiver(wakeOrderBroadcastReceiver, filter);
     }
 
     @Override
@@ -117,6 +130,36 @@ public class MainActivity extends BaseActivity
             headTextView.setText(user.getUsername());
             ImageLoader.getInstance().displayImage(user.getHeadImg(), headImg);
         }
+
+    }
+
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+    }
+
+    public class WakeOrderBroadcastReceiver extends BroadcastReceiver {
+
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            System.out.println("接收到广播");
+            switch (intent.getAction()) {
+                case ACTION_START_BAIDU_AUDIO:
+                    login();
+                    break;
+            }
+        }
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(wakeOrderBroadcastReceiver);
+        changeWakeupServiceState(false);
     }
 
     public void login() {
@@ -137,8 +180,6 @@ public class MainActivity extends BaseActivity
 
                 });
             }
-
-
         }
 
     }
@@ -198,45 +239,6 @@ public class MainActivity extends BaseActivity
         }
     }
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.menu.main,menu);
-//        return super.onCreateOptionsMenu(menu);
-//    }
-
-//    @Override
-//    public boolean onPrepareOptionsMenu(Menu menu) {
-//        System.out.println("which:"+whichFragment);
-//        menu.clear();
-//        switch (whichFragment){
-//            case PC_FRAGMENT:
-////                inflater.inflate(R.menu.pc_tool_menu,menu);
-//                menu.findItem(R.menu.pc_tool_menu);
-//                toolbar.setTitle("我的电脑");
-//                break;
-//            case ELECTRICAL_FRAGMENT:
-////                inflater.inflate(R.menu.electrical_tool_menu,menu);
-//                menu.findItem(R.menu.electrical_tool_menu);
-//                toolbar.setTitle("我的家电");
-//
-//                break;
-//            case SMART_DEVICE_FRAGMENT:
-//                toolbar.setTitle("智能设备");
-//                break;
-//        }
-//        return super.onPrepareOptionsMenu(menu);
-//    }
-
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        int id = item.getItemId();
-//
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
-//
-//        return super.onOptionsItemSelected(item);
-//    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -270,5 +272,15 @@ public class MainActivity extends BaseActivity
 
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+
+    private void changeWakeupServiceState(boolean on) {
+        Intent intent = new Intent(this, WakaUpService.class);
+        if (on)
+            startService(intent);
+        else
+            stopService(intent);
+
     }
 }

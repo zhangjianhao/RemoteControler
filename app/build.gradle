@@ -49,4 +49,5 @@ dependencies {
     compile 'org.greenrobot:greendao:2.2.1'
     testCompile 'junit:junit:4.12'
     compile files('libs/uil.jar')
+    compile files('libs/VoiceRecognition-2.1.20.jar')
 }
