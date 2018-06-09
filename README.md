@@ -7,12 +7,12 @@
 ## 软件截图：
 
 ![zhangjianhao](https://github.com/zhangjianhao/RemoteControler/blob/master/imgs/1.png)
-![zhangjianhao](https://github.com/zhangjianhao/RemoteControler/blob/master/imgs/2.png)<br/>
+![zhangjianhao](https://github.com/zhangjianhao/RemoteControler/blob/master/imgs/2.png)
 ![zhangjianhao](https://github.com/zhangjianhao/RemoteControler/blob/master/imgs/3.png)
 
 ![zhangjianhao](https://github.com/zhangjianhao/RemoteControler/blob/master/imgs/4.png)<br/>
 ![zhangjianhao](https://github.com/zhangjianhao/RemoteControler/blob/master/imgs/5.png)
-![zhangjianhao](https://github.com/zhangjianhao/RemoteControler/blob/master/imgs/6.png)<br/>
+![zhangjianhao](https://github.com/zhangjianhao/RemoteControler/blob/master/imgs/6.png)
 
 ## 声明：
 本软件未经原作者许可，不可用于商业用途
