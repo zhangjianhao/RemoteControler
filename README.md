@@ -6,12 +6,12 @@
 4. 指纹登录，数据备份还原等。
 ## 软件截图：
 
-![zhangjianhao](https://github.com/zhangjianhao/RemoteControler/blob/master/imgs/1.png)<br/>
+![zhangjianhao](https://github.com/zhangjianhao/RemoteControler/blob/master/imgs/1.png)
 ![zhangjianhao](https://github.com/zhangjianhao/RemoteControler/blob/master/imgs/2.png)<br/>
-![zhangjianhao](https://github.com/zhangjianhao/RemoteControler/blob/master/imgs/3.png)<br/>
+![zhangjianhao](https://github.com/zhangjianhao/RemoteControler/blob/master/imgs/3.png)
 
 ![zhangjianhao](https://github.com/zhangjianhao/RemoteControler/blob/master/imgs/4.png)<br/>
-![zhangjianhao](https://github.com/zhangjianhao/RemoteControler/blob/master/imgs/5.png)<br/>
+![zhangjianhao](https://github.com/zhangjianhao/RemoteControler/blob/master/imgs/5.png)
 ![zhangjianhao](https://github.com/zhangjianhao/RemoteControler/blob/master/imgs/6.png)<br/>
 
 ## 声明：
